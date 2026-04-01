@@ -2,28 +2,29 @@ import { Section } from '@/components/marketing/Section'
 import { SectionHeader } from '@/components/marketing/SectionHeader'
 import { SECTION_IDS } from '@/lib/constants/routes'
 import { howItWorksSteps } from './how-it-works-data'
+import { HowItWorksClient } from './HowItWorksClient'
 
 export function HowItWorks() {
   return (
-    <Section id={SECTION_IDS.HOW_IT_WORKS} className="bg-beige">
+    <Section
+      id={SECTION_IDS.HOW_IT_WORKS}
+      className="bg-white"
+      containerClassName="max-w-[88rem] px-6"
+    >
       <SectionHeader
-        eyebrow="Process"
-        title={<>Three steps to <span className="text-luma-coral">better care</span></>}
-        description="From sign-up to your first session in days, not months."
+        eyebrow="How It Works"
+        title={
+          <>
+            From sign-up to{' '}
+            <em className="text-luma-coral">first session</em>
+            {' '}in under 48 hours.
+          </>
+        }
+        description="We removed every obstacle that usually stops students from getting help. No GP referral. No waiting list. No judgement."
         centered
+        className="[&_h2]:text-main-text [&_p]:mx-auto [&_p]:max-w-3xl [&_p]:text-muted-text [&_span]:bg-beige [&_span]:text-luma-coral"
       />
-
-      <ol className="mt-14 grid gap-8 sm:grid-cols-3">
-        {howItWorksSteps.map((step, i) => (
-          <li key={step.title} className="relative space-y-3 rounded-xl bg-background p-6 shadow-card">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-luma-coral/10 font-display text-lg font-bold text-luma-coral">
-              {i + 1}
-            </span>
-            <h3 className="font-semibold text-main-text">{step.title}</h3>
-            <p className="text-sm leading-relaxed text-muted-text">{step.description}</p>
-          </li>
-        ))}
-      </ol>
+      <HowItWorksClient steps={howItWorksSteps} />
     </Section>
   )
 }

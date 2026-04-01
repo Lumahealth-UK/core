@@ -60,7 +60,7 @@ function NavCta({ onClick, className }: { onClick?: () => void; className?: stri
       onClick={onClick}
       className={cn(buttonVariants({ variant: 'default', size: 'md' }), className)}
     >
-      Get started
+      Join waitlist
     </Link>
   )
 }

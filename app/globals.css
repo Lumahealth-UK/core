@@ -296,6 +296,18 @@
   }
 }
 
+@keyframes indie-step-node-glow {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: translate(-50%, -50%) scale(0.92);
+  }
+  50% {
+    opacity: 0.95;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
 @layer utilities {
   .text-outline-main {
     color: transparent;
@@ -325,6 +337,26 @@
     width: max-content;
     animation: var(--animate-marquee-reverse);
   }
+
+  .indie-step-pill {
+    border-color: rgb(0 0 0 / 0.08);
+    background: linear-gradient(180deg, rgb(247 244 239 / 0.95) 0%, rgb(255 255 255 / 1) 100%);
+    box-shadow:
+      0 1px 2px rgb(0 0 0 / 0.08),
+      0 8px 20px rgb(0 0 0 / 0.1),
+      0 0 0 1px rgb(var(--indie-step-rgb) / 0.22);
+  }
+
+  .indie-step-node-glow {
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgb(var(--indie-step-rgb) / 0.42) 0%,
+      rgb(var(--indie-step-rgb) / 0.2) 42%,
+      transparent 78%
+    );
+    animation: indie-step-node-glow 3s ease-in-out infinite;
+    filter: blur(10px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -335,7 +367,8 @@
 
   .animate-reveal-up,
   .animate-float-vertical,
-  .animate-pulse-soft {
+  .animate-pulse-soft,
+  .indie-step-node-glow {
     animation: none;
   }
 }
