@@ -1,27 +1,64 @@
 import { Section } from '@/components/marketing/Section'
+import Image from 'next/image'
 
 const LOGOS = [
-  'University of Manchester',
-  'UCL',
-  'King\'s College London',
-  'University of Edinburgh',
-  'Bristol University',
-  'Leeds University',
+  {
+    name: 'University of Manchester',
+    src: '/Images/Universities/uofm.gif',
+    width: 200,
+    height: 56,
+  },
+  {
+    name: "King's College London",
+    src: "/Images/Universities/King's_College_London_logo.svg.png",
+    width: 220,
+    height: 56,
+  },
+  {
+    name: 'University of Edinburgh',
+    src: '/Images/Universities/University_of_Edinburgh-Logo-e1645114908725-1024x264.png',
+    width: 240,
+    height: 56,
+  },
+  {
+    name: 'University of Bristol',
+    src: '/Images/Universities/University_of_Bristol_logo.png',
+    width: 210,
+    height: 56,
+  },
+  {
+    name: 'University of Leeds',
+    src: '/Images/Universities/UniversityofLeeds.png',
+    width: 240,
+    height: 56,
+  },
+  {
+    name: 'Brand VI',
+    src: '/Images/Universities/brand-VI-logo-horizontal-singlecolour-darkpurple.png.jpg',
+    width: 210,
+    height: 56,
+  },
 ]
 
 export function LogoCloud() {
   return (
-    <Section className="py-12 md:py-16">
+    <Section className="pt-8 pb-12 sm:pt-10 md:pt-14 md:pb-16 lg:pt-16">
       <p className="mb-8 text-center text-sm font-medium text-muted-text">
         Trusted by students at
       </p>
-      <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
-        {LOGOS.map((name) => (
+      <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8">
+        {LOGOS.map((logo) => (
           <div
-            key={name}
-            className="rounded border border-dashed border-border px-6 py-3 text-xs font-semibold text-muted-text"
+            key={logo.name}
+            className="flex h-16 items-center justify-center opacity-80 transition-opacity hover:opacity-100 md:h-20"
           >
-            {name}
+            <Image
+              src={logo.src}
+              alt={logo.name}
+              width={logo.width}
+              height={logo.height}
+              className="h-12 w-auto object-contain md:h-14"
+            />
           </div>
         ))}
       </div>

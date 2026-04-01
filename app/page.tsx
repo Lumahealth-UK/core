@@ -26,14 +26,14 @@ export default function LandingPage() {
         <MarqueeSection />
         <LogoCloud />
         <HowItWorks />
-        <StudentStories />
-        <OurStory />
-        <Evidence />
-        <Pricing />
         <Therapists />
-        <Founders />
+        <Pricing />
+        <OurStory />
         <Faq />
         <BlogPreview />
+        <StudentStories />
+        <Evidence />
+        <Founders />
         {/* Scroll target for “For Therapists” — replace with a dedicated section when ready */}
         <div
           id={SECTION_IDS.FOR_THERAPISTS}
