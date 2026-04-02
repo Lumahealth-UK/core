@@ -27,12 +27,12 @@ export default function LandingPage() {
         <LogoCloud />
         <HowItWorks />
         <Therapists />
+        <Evidence />
         <Pricing />
         <OurStory />
         <Faq />
         <BlogPreview />
         <StudentStories />
-        <Evidence />
         <Founders />
         {/* Scroll target for “For Therapists” — replace with a dedicated section when ready */}
         <div

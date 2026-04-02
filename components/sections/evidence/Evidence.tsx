@@ -1,27 +1,170 @@
 import { Section } from '@/components/primitives/Section'
-import { SectionHeader } from '@/components/primitives/SectionHeader'
-import { SECTION_IDS } from '@/lib/constants/routes'
-import { Card } from '@/components/ui/card'
-import { evidenceStats } from './evidence-data'
+import { SECTION_IDS, sectionHref } from '@/lib/constants/routes'
+import { cn } from '@/lib/utils'
+import { type ComparisonRow, COMPARISON_ROWS } from './evidence-data'
+
+function PrimaryStat() {
+  return (
+    <div className="flex items-center gap-6 rounded-2xl border border-luma-hairline bg-white p-7 shadow-[0_10px_30px_rgba(61,47,30,0.06)]">
+      <p className="shrink-0 font-display text-6xl font-bold leading-none text-luma-coral">
+        1 in 4
+      </p>
+      <div className="h-12 w-px shrink-0 bg-luma-hairline" aria-hidden="true" />
+      <p className="text-sm leading-snug text-luma-mocha/75">
+        UK students experience a mental health problem this year
+      </p>
+    </div>
+  )
+}
+
+function SecondaryStat({
+  value,
+  label,
+  dimmed = false,
+}: {
+  value: string
+  label: string
+  dimmed?: boolean
+}) {
+  return (
+    <div className="rounded-2xl border border-luma-hairline bg-white p-5 shadow-[0_6px_22px_rgba(61,47,30,0.04)]">
+      <p
+        className={cn(
+          'font-display text-4xl font-bold leading-none',
+          dimmed ? 'text-luma-coral-light' : 'text-luma-coral-deep',
+        )}
+      >
+        {value}
+      </p>
+      <p className="mt-2 text-xs leading-snug text-luma-mocha/75">{label}</p>
+    </div>
+  )
+}
+
+function ComparisonTable({ rows }: { rows: ComparisonRow[] }) {
+  return (
+    <div className="overflow-hidden rounded-2xl border border-luma-hairline bg-white shadow-[0_10px_28px_rgba(61,47,30,0.05)]">
+      {/* Table header */}
+      <div className="border-b border-luma-hairline bg-luma-coral-tint/70 px-5 py-3">
+        <div className="grid grid-cols-3 items-center">
+          <p className="text-[10px] font-semibold uppercase tracking-widest text-luma-mocha/70">
+            Luma vs. Alternatives
+          </p>
+          <p className="text-center text-[10px] font-semibold uppercase tracking-widest text-luma-mocha/50">
+            Cost
+          </p>
+          <p className="text-right text-[10px] font-semibold uppercase tracking-widest text-luma-mocha/50">
+            Wait time
+          </p>
+        </div>
+      </div>
+
+      {/* Rows */}
+      <div>
+        {rows.map((row) => (
+          <div
+            key={row.service}
+            className={cn(
+              'grid grid-cols-3 items-center border-b border-luma-hairline px-5 py-3.5 last:border-b-0',
+              row.isLuma
+                ? 'border-l-[3px] border-l-luma-coral bg-luma-coral-tint/60'
+                : 'border-l-[3px] border-l-transparent',
+            )}
+          >
+            <span
+              className={cn(
+                'text-sm font-semibold',
+                row.isLuma ? 'text-luma-coral-deep' : 'text-luma-mocha',
+              )}
+            >
+              {row.service}
+            </span>
+            <span
+              className={cn(
+                'text-sm text-center',
+                row.isLuma ? 'font-bold text-luma-coral-deep' : 'text-luma-mocha/60',
+              )}
+            >
+              {row.cost}
+            </span>
+            <span
+              className={cn(
+                'text-sm text-right',
+                row.isLuma ? 'font-semibold text-luma-coral-deep' : 'text-luma-mocha/60',
+              )}
+            >
+              {row.wait}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* Footer microcopy */}
+      <div className="border-t border-luma-hairline px-5 py-3">
+        <p className="text-[11px] text-luma-mocha/55">
+          Access speed &amp; cost compared — Luma leads on both.
+        </p>
+      </div>
+    </div>
+  )
+}
 
 export function Evidence() {
   return (
-    <Section id={SECTION_IDS.EVIDENCE}>
-      <SectionHeader
-        eyebrow="Evidence"
-        title={<>The numbers <span className="text-luma-coral">speak</span></>}
-        description="Our outcomes are independently tracked. No spin."
-        centered
-      />
+    <Section id={SECTION_IDS.EVIDENCE} className="bg-white">
+      <div className="grid grid-cols-1 gap-14 lg:grid-cols-[5fr_7fr] lg:items-center lg:gap-20">
+        {/* LEFT: Narrative */}
+        <div className="flex flex-col space-y-7">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-luma-coral">
+            The Evidence
+          </p>
 
-      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {evidenceStats.map(({ value, label, source }) => (
-          <Card key={label} className="bg-beige p-6 text-center">
-            <p className="font-display text-4xl font-bold text-luma-coral">{value}</p>
-            <p className="mt-2 text-sm font-semibold text-main-text">{label}</p>
-            {source && <p className="mt-1 text-xs text-muted-text">{source}</p>}
-          </Card>
-        ))}
+          <h2 className="font-display text-4xl font-bold leading-tight text-luma-mocha md:text-5xl">
+            This isn&rsquo;t just{' '}
+            <em className="not-italic text-luma-coral">good to have.</em>
+            <br />
+            It&rsquo;s urgent.
+          </h2>
+
+          <p className="text-base leading-relaxed text-luma-mocha/75">
+            1 in 4 UK students face a mental health crisis during their degree.
+            Most never access support. Luma changes that — fast, affordable, and human.
+          </p>
+
+          <div>
+            <a
+              href={sectionHref(SECTION_IDS.PRICING)}
+              className={cn(
+                'inline-flex items-center gap-2 rounded-full px-7 py-3.5',
+                'bg-luma-coral text-sm font-semibold text-white',
+                'shadow-[0_4px_20px_rgba(244,123,102,0.30)]',
+                'transition-all duration-200',
+                'hover:bg-luma-coral-deep hover:shadow-[0_8px_30px_rgba(244,123,102,0.38)]',
+              )}
+            >
+              I&rsquo;m ready to start <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
+        {/* RIGHT: Proof */}
+        <div className="flex flex-col gap-4">
+          <PrimaryStat />
+
+          <div className="grid grid-cols-2 gap-4">
+            <SecondaryStat
+              value="75%"
+              label="Who need help never access professional support"
+              dimmed
+            />
+            <SecondaryStat
+              value="97%"
+              label="Of Luma users report improvement after 3 sessions"
+            />
+          </div>
+
+          <ComparisonTable rows={COMPARISON_ROWS} />
+        </div>
       </div>
     </Section>
   )
