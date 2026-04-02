@@ -1,6 +1,7 @@
 import { Section } from '@/components/marketing/Section'
 import { SectionHeader } from '@/components/marketing/SectionHeader'
 import { SECTION_IDS } from '@/lib/constants/routes'
+import { Card } from '@/components/ui/card'
 import { testimonials } from './student-stories-data'
 
 export function StudentStories() {
@@ -15,10 +16,7 @@ export function StudentStories() {
 
       <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {testimonials.map((t) => (
-          <figure
-            key={t.name}
-            className="flex flex-col gap-4 rounded-xl bg-beige p-6 shadow-card"
-          >
+          <Card asChild key={t.name} className="flex flex-col gap-4 bg-beige p-6"><figure>
             <blockquote className="flex-1 text-sm leading-relaxed text-main-text">
               &ldquo;{t.quote}&rdquo;
             </blockquote>
@@ -31,7 +29,7 @@ export function StudentStories() {
                 <p className="text-xs text-muted-text">{t.university}</p>
               </div>
             </figcaption>
-          </figure>
+          </figure></Card>
         ))}
       </div>
     </Section>

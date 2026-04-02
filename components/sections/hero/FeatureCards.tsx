@@ -1,5 +1,7 @@
 import { Heart, Calendar, TrendingUp } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { Badge } from '@/components/ui/badge'
+import { Card } from '@/components/ui/card'
 
 const CARDS = [
   {
@@ -57,7 +59,7 @@ export function FeatureCards() {
             )}
             style={{ animationDelay: delay }}
           >
-            <div className="rounded-2xl border border-luma-hairline bg-white p-5 shadow-popup">
+            <Card className="rounded-2xl border border-luma-hairline bg-white p-5 shadow-popup">
               <div className="flex items-start gap-4">
                 <div className={cn('flex h-11 w-11 shrink-0 items-center justify-center rounded-xl', iconClass)}>
                   {icon}
@@ -65,14 +67,14 @@ export function FeatureCards() {
                 <div className="min-w-0 flex-1">
                   <div className="flex items-start justify-between gap-2">
                     <h3 className="text-sm font-semibold leading-snug text-main-text">{title}</h3>
-                    <span className={cn('shrink-0 rounded-full px-2.5 py-0.5 text-[10px] font-semibold', badgeClass)}>
+                    <Badge className={cn('shrink-0 text-[10px]', badgeClass)}>
                       {badge}
-                    </span>
+                    </Badge>
                   </div>
                   <p className="mt-1.5 text-xs leading-relaxed text-muted-text">{description}</p>
                 </div>
               </div>
-            </div>
+            </Card>
           </div>
         ))}
       </div>

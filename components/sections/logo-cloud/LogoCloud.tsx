@@ -10,19 +10,19 @@ const LOGOS = [
   },
   {
     name: "King's College London",
-    src: "/Images/Universities/King's_College_London_logo.svg.png",
+    src: "/Images/Universities/King'sCollegeLondon.png",
     width: 220,
     height: 56,
   },
   {
     name: 'University of Edinburgh',
-    src: '/Images/Universities/University_of_Edinburgh-Logo-e1645114908725-1024x264.png',
+    src: '/Images/Universities/UniversityofEdinburgh.png',
     width: 240,
     height: 56,
   },
   {
     name: 'University of Bristol',
-    src: '/Images/Universities/University_of_Bristol_logo.png',
+    src: '/Images/Universities/UniversityofBristol.png',
     width: 210,
     height: 56,
   },
@@ -33,8 +33,8 @@ const LOGOS = [
     height: 56,
   },
   {
-    name: 'Brand VI',
-    src: '/Images/Universities/brand-VI-logo-horizontal-singlecolour-darkpurple.png.jpg',
+    name: 'UCL',
+    src: '/Images/Universities/UCL.jpg',
     width: 210,
     height: 56,
   },

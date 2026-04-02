@@ -1,6 +1,7 @@
 import { Section } from '@/components/marketing/Section'
 import { SectionHeader } from '@/components/marketing/SectionHeader'
 import { SECTION_IDS, sectionHref } from '@/lib/constants/routes'
+import { Card } from '@/components/ui/card'
 import { plans } from './pricing-data'
 import { cn } from '@/lib/utils'
 
@@ -16,11 +17,11 @@ export function Pricing() {
 
       <div className="mt-14 grid gap-6 md:grid-cols-3">
         {plans.map((plan) => (
-          <div
+          <Card
             key={plan.name}
             className={cn(
               'rounded-2xl p-8 space-y-6',
-              plan.highlighted ? 'bg-luma-coral text-white shadow-popup' : 'bg-background shadow-card'
+              plan.highlighted ? 'bg-luma-coral text-white shadow-popup' : 'bg-background'
             )}
           >
             <div>
@@ -53,7 +54,7 @@ export function Pricing() {
             >
               {plan.cta}
             </a>
-          </div>
+          </Card>
         ))}
       </div>
     </Section>

@@ -1,42 +1,43 @@
+import type { StaticImageData } from 'next/image'
+import calendarIcon from '@/public/Icons/homepage icons/calendar.png'
+import clipboardIcon from '@/public/Icons/homepage icons/clipboard.png'
+import rocketIcon from '@/public/Icons/homepage icons/rocket.png'
+import smileyIcon from '@/public/Icons/homepage icons/smileypng.png'
+
 export interface Step {
-  icon: string
+  icon: StaticImageData
   label: string
   title: string
   description: string
-  accentRgb: string
 }
 
 export const howItWorksSteps: Step[] = [
   {
-    icon: '🎯',
+    icon: clipboardIcon,
     label: 'Setup',
     title: "Tell us what's going on",
     description:
       'A short 3-minute questionnaire helps us understand your concerns, preferences, and availability. No diagnosis required.',
-    accentRgb: '197 184 232',
   },
   {
-    icon: '✨',
+    icon: rocketIcon,
     label: 'Profile',
     title: 'Get matched instantly',
     description:
       'Our algorithm scores every BACP-accredited therapist on your profile. You see your top 3 matches with compatibility percentages.',
-    accentRgb: '139 175 139',
   },
   {
-    icon: '📅',
+    icon: calendarIcon,
     label: 'Strategy',
     title: 'Book in seconds',
     description:
       'Pick a slot that fits around lectures. Evening and weekend availability from every therapist. Same-week booking guaranteed.',
-    accentRgb: '245 216 75',
   },
   {
-    icon: '🌿',
+    icon: smileyIcon,
     label: 'Progress',
     title: 'Start feeling better',
     description:
       'Sessions via secure video call or phone. Track your mood and progress in your personal dashboard between sessions.',
-    accentRgb: '168 200 232',
   },
 ]

@@ -1,6 +1,7 @@
 import { Section } from '@/components/marketing/Section'
 import { sectionHref, SECTION_IDS } from '@/lib/constants/routes'
 import { cn } from '@/lib/utils'
+import { Badge } from '@/components/ui/badge'
 import { FeatureCards } from './FeatureCards'
 
 const AVATARS = [
@@ -22,10 +23,10 @@ export function Hero() {
         {/* Left: text content */}
         <div className="flex flex-col items-start gap-7 xl:gap-8">
           {/* Badge */}
-          <span className="inline-flex items-center gap-2 rounded-full border border-luma-hairline bg-white px-4 py-2 text-xs font-semibold text-main-text shadow-card sm:text-sm">
+          <Badge variant="outline" className="gap-2 sm:text-sm">
             <span className="text-luma-coral">✦</span>
-            Launching Spring 2026 
-          </span>
+            Launching Spring 2026
+          </Badge>
 
           {/* Headline */}
           <h1 className="font-display text-4xl font-bold leading-[1.05] text-main-text sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.75rem]">

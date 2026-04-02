@@ -1,6 +1,7 @@
 import { Section } from '@/components/marketing/Section'
 import { SectionHeader } from '@/components/marketing/SectionHeader'
 import { SECTION_IDS } from '@/lib/constants/routes'
+import { Card } from '@/components/ui/card'
 import { posts } from './blog-preview-data'
 
 export function BlogPreview() {
@@ -15,7 +16,7 @@ export function BlogPreview() {
 
       <div className="mt-14 grid gap-6 sm:grid-cols-3">
         {posts.map((post) => (
-          <article key={post.title} className="rounded-xl bg-background shadow-card overflow-hidden">
+          <Card asChild key={post.title} className="bg-background overflow-hidden"><article>
             <div className="h-40 bg-beige border-b border-dashed border-border flex items-center justify-center text-xs text-muted-text">
               [ Post image ]
             </div>
@@ -24,7 +25,7 @@ export function BlogPreview() {
               <h3 className="font-semibold text-main-text leading-snug">{post.title}</h3>
               <p className="text-xs text-muted-text">{post.date}</p>
             </div>
-          </article>
+          </article></Card>
         ))}
       </div>
     </Section>

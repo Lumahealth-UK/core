@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils'
+import { Badge } from '@/components/ui/badge'
 
 interface SectionHeaderProps {
   /** Small uppercase label above the title */
@@ -27,9 +28,7 @@ export function SectionHeader({
   return (
     <div className={cn('space-y-3', centered && 'text-center', className)}>
       {eyebrow && (
-        <span className="inline-block rounded-full bg-beige px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-luma-coral">
-          {eyebrow}
-        </span>
+        <Badge variant="eyebrow">{eyebrow}</Badge>
       )}
       <h2 className="font-display text-4xl font-bold leading-tight text-main-text md:text-5xl">
         {title}
