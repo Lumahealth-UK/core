@@ -1,4 +1,4 @@
-import { Section } from '@/components/marketing/Section'
+import { Section } from '@/components/primitives/Section'
 import { sectionHref, SECTION_IDS } from '@/lib/constants/routes'
 import { cn } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'

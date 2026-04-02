@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Section } from '@/components/marketing/Section'
+import { WaveSection } from '@/components/primitives/WaveSection'
 import { SECTION_IDS } from '@/lib/constants/routes'
 import { cn } from '@/lib/utils'
 import { type Therapist, THERAPISTS, TRUST_SIGNALS } from './therapists-data'
@@ -60,10 +60,15 @@ function TherapistCard({ therapist }: { therapist: Therapist }) {
   )
 }
 
-
 export function Therapists() {
   return (
-    <Section id={SECTION_IDS.THERAPISTS} className="bg-luma-espresso" containerClassName="max-w-[90rem] w-full">
+    <WaveSection
+      id={SECTION_IDS.THERAPISTS}
+      className="bg-luma-espresso"
+      containerClassName="max-w-[90rem] w-full"
+      topWave={{ front: 'white', back: 'var(--color-luma-mocha)' }}
+      bottomWave={{ front: 'var(--color-beige)', back: 'var(--color-luma-mocha)' }}
+    >
       <div className="flex items-start justify-between gap-16">
         <div className="max-w-lg space-y-4">
           <p className="text-xs font-semibold uppercase tracking-widest text-luma-coral">
@@ -105,6 +110,6 @@ export function Therapists() {
           <TherapistCard key={t.name} therapist={t} />
         ))}
       </div>
-    </Section>
+    </WaveSection>
   )
 }

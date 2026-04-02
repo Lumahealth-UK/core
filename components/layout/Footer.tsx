@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { Instagram, Linkedin, Music } from 'lucide-react'
 import { SITE_NAME } from '@/lib/constants/site'
 import { SECTION_IDS, sectionHref } from '@/lib/constants/routes'
-import { Section } from '@/components/marketing/Section'
+import { Section } from '@/components/primitives/Section'
 
 type SocialIconKey = 'Instagram' | 'LinkedIn' | 'TikTok'
 

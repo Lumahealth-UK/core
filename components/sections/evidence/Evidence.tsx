@@ -1,5 +1,5 @@
-import { Section } from '@/components/marketing/Section'
-import { SectionHeader } from '@/components/marketing/SectionHeader'
+import { Section } from '@/components/primitives/Section'
+import { SectionHeader } from '@/components/primitives/SectionHeader'
 import { SECTION_IDS } from '@/lib/constants/routes'
 import { Card } from '@/components/ui/card'
 import { evidenceStats } from './evidence-data'

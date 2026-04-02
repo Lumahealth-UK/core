@@ -1,4 +1,4 @@
-import { Section } from '@/components/marketing/Section'
+import { Section } from '@/components/primitives/Section'
 import Image from 'next/image'
 
 const LOGOS = [
