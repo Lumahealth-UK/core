@@ -1,35 +1,63 @@
+export type BillingMode = 'session' | 'monthly'
+
 export interface Plan {
+  id: string
+  eyebrow: string
   name: string
-  price: string
-  description: string
+  tagline: string
+  price: Record<BillingMode, string>
+  priceNote: Record<BillingMode, string>
   features: string[]
   cta: string
-  highlighted: boolean
+  popular?: true
 }
 
-export const plans: Plan[] = [
+export const PLANS: Plan[] = [
   {
-    name: 'Self-pay',
-    price: '£55/session',
-    description: 'Pay as you go — no commitment required.',
-    features: ['Vetted therapist matching', 'Online & in-person', 'Secure messaging', 'Session notes'],
+    id: 'starter',
+    eyebrow: 'Starter',
+    name: 'Pay as you go',
+    tagline: 'No commitment. Try a session first.',
+    price: { session: '£25', monthly: '£25' },
+    priceNote: { session: 'per session', monthly: 'per session · no lock-in' },
+    features: [
+      '50-min video session',
+      'BACP-accredited therapist',
+      'Same-week booking',
+      'Session notes & summary',
+    ],
     cta: 'Get started',
-    highlighted: false,
   },
   {
-    name: 'Monthly',
-    price: '£45/session',
-    description: '4 sessions per month, billed monthly.',
-    features: ['Everything in Self-pay', 'Priority matching', 'Progress tracking', 'Cancel any time'],
-    cta: 'Most popular',
-    highlighted: true,
+    id: 'pro',
+    eyebrow: 'Student Pro',
+    name: 'Student Pro',
+    tagline: 'Consistent support for real progress.',
+    price: { session: '£25', monthly: '£79' },
+    priceNote: { session: 'per session', monthly: 'per month · 4 sessions' },
+    features: [
+      '4 sessions per month',
+      'Choose your therapist',
+      'Progress & mood dashboard',
+      'Between-session messaging',
+      'Pause or cancel anytime',
+    ],
+    cta: 'Join waitlist \u2014 free \u2192',
+    popular: true,
   },
   {
+    id: 'university',
+    eyebrow: 'Institutions',
     name: 'University',
-    price: 'Custom',
-    description: 'Subsidised plans for student unions and universities.',
-    features: ['Bulk session credits', 'Dedicated account manager', 'Usage reporting', 'SLA guarantee'],
-    cta: 'Talk to us',
-    highlighted: false,
+    tagline: 'Affordable access for your entire student body.',
+    price: { session: 'Custom', monthly: 'Custom' },
+    priceNote: { session: 'per institution', monthly: 'per institution' },
+    features: [
+      'Unlimited student seats',
+      'Admin wellbeing dashboard',
+      'GDPR-compliant reporting',
+      'Dedicated account manager',
+    ],
+    cta: 'Contact us \u2192',
   },
 ]

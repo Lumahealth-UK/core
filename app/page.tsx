@@ -29,10 +29,10 @@ export default function LandingPage() {
         <Therapists />
         <Evidence />
         <Pricing />
+        <StudentStories />
         <OurStory />
         <Faq />
         <BlogPreview />
-        <StudentStories />
         <Founders />
         {/* Scroll target for “For Therapists” — replace with a dedicated section when ready */}
         <div
