@@ -109,7 +109,7 @@ function ComparisonTable({ rows }: { rows: ComparisonRow[] }) {
   )
 }
 
-export function Evidence() {
+export function EvidenceSection() {
   return (
     <Section id={SECTION_IDS.EVIDENCE} className="bg-white">
       <div className="grid grid-cols-1 gap-14 lg:grid-cols-[5fr_7fr] lg:items-center lg:gap-20">

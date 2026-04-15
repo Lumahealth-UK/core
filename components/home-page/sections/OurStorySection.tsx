@@ -33,7 +33,7 @@ const values = [
   },
 ] as const
 
-export function StorySection() {
+export function OurStorySection() {
   return (
     <Section id={SECTION_IDS.OUR_STORY} className="bg-beige">
       <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:gap-16">

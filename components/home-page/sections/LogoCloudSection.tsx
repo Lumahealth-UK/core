@@ -4,43 +4,43 @@ import { Section } from '@/components/primitives/Section'
 const LOGOS = [
   {
     name: 'University of Manchester',
-    src: '/Images/Universities/uofm.gif',
+    src: '/images/universities/university-of-manchester.gif',
     width: 200,
     height: 56,
   },
   {
     name: "King's College London",
-    src: "/Images/Universities/King'sCollegeLondon.png",
+    src: '/images/universities/kings-college-london.png',
     width: 220,
     height: 56,
   },
   {
     name: 'University of Edinburgh',
-    src: '/Images/Universities/UniversityofEdinburgh.png',
+    src: '/images/universities/university-of-edinburgh.png',
     width: 240,
     height: 56,
   },
   {
     name: 'University of Bristol',
-    src: '/Images/Universities/UniversityofBristol.png',
+    src: '/images/universities/university-of-bristol.png',
     width: 210,
     height: 56,
   },
   {
     name: 'University of Leeds',
-    src: '/Images/Universities/UniversityofLeeds.png',
+    src: '/images/universities/university-of-leeds.png',
     width: 240,
     height: 56,
   },
   {
     name: 'UCL',
-    src: '/Images/Universities/UCL.jpg',
+    src: '/images/universities/ucl.jpg',
     width: 210,
     height: 56,
   },
 ]
 
-export function LogoCloud() {
+export function LogoCloudSection() {
   return (
     <Section className="bg-beige pt-8 pb-12 sm:pt-10 md:pt-14 md:pb-16 lg:pt-16">
       <p className="mb-8 text-center text-sm font-medium text-muted-text">Trusted by students at</p>

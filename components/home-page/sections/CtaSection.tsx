@@ -1,8 +1,7 @@
 import Link from 'next/link'
+import { WaitlistRoleDialog } from '@/components/home-page/WaitlistRoleDialog'
 import { Section } from '@/components/primitives/Section'
 import { SECTION_IDS, sectionHref } from '@/lib/constants/routes'
-import { buttonVariants } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
 
 export function CtaSection() {
   return (
@@ -34,18 +33,10 @@ export function CtaSection() {
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <Link
-            href={sectionHref(SECTION_IDS.CONTACT)}
-            className={cn(buttonVariants({ variant: 'default', size: 'lg' }))}
-          >
-            Join the waitlist
-          </Link>
+          <WaitlistRoleDialog triggerLabel="Join the waitlist" triggerSize="lg" />
           <Link
             href={sectionHref(SECTION_IDS.HOW_IT_WORKS)}
-            className={cn(
-              buttonVariants({ size: 'lg' }),
-              'border border-white/20 bg-transparent text-white hover:bg-white/8 hover:text-white'
-            )}
+            className="inline-flex h-13 items-center justify-center rounded-full border border-white/20 bg-transparent px-8 text-base font-semibold text-white transition-all hover:bg-white/8 hover:text-white"
           >
             Learn more
           </Link>

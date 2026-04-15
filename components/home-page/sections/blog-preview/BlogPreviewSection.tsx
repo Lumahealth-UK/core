@@ -4,7 +4,7 @@ import { SECTION_IDS } from '@/lib/constants/routes'
 import { Card } from '@/components/ui/card'
 import { posts } from './blog-preview-data'
 
-export function BlogPreview() {
+export function BlogPreviewSection() {
   return (
     <Section id={SECTION_IDS.BLOG} className="bg-beige">
       <SectionHeader

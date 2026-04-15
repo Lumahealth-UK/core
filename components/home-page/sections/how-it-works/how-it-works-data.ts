@@ -1,8 +1,8 @@
 import type { StaticImageData } from 'next/image'
-import calendarIcon from '@/public/Icons/homepage icons/calendar.png'
-import clipboardIcon from '@/public/Icons/homepage icons/clipboard.png'
-import rocketIcon from '@/public/Icons/homepage icons/rocket.png'
-import smileyIcon from '@/public/Icons/homepage icons/smileypng.png'
+import calendarIcon from '@/public/icons/homepage-icons/calendar.png'
+import clipboardIcon from '@/public/icons/homepage-icons/clipboard.png'
+import rocketIcon from '@/public/icons/homepage-icons/rocket.png'
+import smileyIcon from '@/public/icons/homepage-icons/smiley.png'
 
 export interface Step {
   icon: StaticImageData

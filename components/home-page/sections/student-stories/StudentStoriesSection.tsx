@@ -4,7 +4,7 @@ import { SECTION_IDS } from '@/lib/constants/routes'
 import { testimonials } from './student-stories-data'
 import { StudentStoriesClient } from './StudentStoriesClient'
 
-export function StudentStories() {
+export function StudentStoriesSection() {
   return (
     <Section id={SECTION_IDS.STUDENT_STORIES}>
       <SectionHeader

@@ -60,7 +60,7 @@ function TherapistCard({ therapist }: { therapist: Therapist }) {
   )
 }
 
-export function Therapists() {
+export function TherapistsSection() {
   return (
     <WaveSection
       id={SECTION_IDS.THERAPISTS}

@@ -15,7 +15,7 @@ export interface TrustSignal {
 export const THERAPISTS: Therapist[] = [
   {
     name: 'Dr. Priya Sharma',
-    photo: '/Images/Therapist headshots/priya.png',
+    photo: '/images/therapist-headshots/priya.png',
     credential: 'BACP Accredited · 8 yrs student experience',
     specialties: ['CBT', 'Anxiety', 'Mindfulness'],
     rating: 4.9,
@@ -23,7 +23,7 @@ export const THERAPISTS: Therapist[] = [
   },
   {
     name: 'Dr. James Okafor',
-    photo: '/Images/Therapist headshots/james.png',
+    photo: '/images/therapist-headshots/james.png',
     credential: 'UKCP Registered · 6 yrs',
     specialties: ['ACT', 'Depression', 'Identity'],
     rating: 4.8,
@@ -31,7 +31,7 @@ export const THERAPISTS: Therapist[] = [
   },
   {
     name: 'Dr. Sofia Andrade',
-    photo: '/Images/Therapist headshots/sofia.png',
+    photo: '/images/therapist-headshots/sofia.png',
     credential: 'BACP Accredited · 10 yrs',
     specialties: ['DBT', 'Relationships', 'Self-esteem'],
     rating: 4.9,

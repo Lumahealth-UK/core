@@ -50,7 +50,7 @@ export function Footer() {
           <div className="space-y-4">
             <Link href="/" className="inline-block">
               <Image
-                src="/Icons/Logo.png"
+                src="/icons/logo.png"
                 alt="Luma Health UK Logo"
                 width={80}
                 height={80}

@@ -3,7 +3,7 @@ import { SectionHeader } from '@/components/primitives/SectionHeader'
 import { SECTION_IDS } from '@/lib/constants/routes'
 import { PricingClient } from './PricingClient'
 
-export function Pricing() {
+export function PricingSection() {
   return (
     <WaveSection
       id={SECTION_IDS.PRICING}

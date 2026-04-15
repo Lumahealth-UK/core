@@ -4,7 +4,7 @@ import { SECTION_IDS } from '@/lib/constants/routes'
 import { howItWorksSteps } from './how-it-works-data'
 import { HowItWorksClient } from './HowItWorksClient'
 
-export function HowItWorks() {
+export function HowItWorksSection() {
   return (
     <Section
       id={SECTION_IDS.HOW_IT_WORKS}

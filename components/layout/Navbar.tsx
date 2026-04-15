@@ -2,9 +2,9 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { WaitlistRoleDialog } from '@/components/home-page/WaitlistRoleDialog'
 import { NAV_LINKS } from '@/lib/constants/site'
 import { SECTION_IDS, sectionHref } from '@/lib/constants/routes'
-import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 const OBSERVER_THRESHOLD = [0, 0.1, 0.25, 0.5, 0.75, 1]
@@ -113,15 +113,14 @@ function HamburgerIcon({ open }: { open: boolean }) {
   )
 }
 
-function NavCta({ onClick, className }: { onClick?: () => void; className?: string }) {
+function NavCta({ onRoleSelect, className }: { onRoleSelect?: () => void; className?: string }) {
   return (
-    <Link
-      href={sectionHref(SECTION_IDS.CONTACT)}
-      onClick={onClick}
-      className={cn(buttonVariants({ variant: 'default', size: 'md' }), className)}
-    >
-      Join waitlist
-    </Link>
+    <WaitlistRoleDialog
+      triggerLabel="Join waitlist"
+      triggerClassName={className}
+      triggerSize="md"
+      onRoleSelect={onRoleSelect}
+    />
   )
 }
 
@@ -212,7 +211,7 @@ export function Navbar() {
               onNavigate={() => setMobileOpen(false)}
               className="pb-1"
             />
-            <NavCta onClick={() => setMobileOpen(false)} className="mt-4 w-full" />
+            <NavCta onRoleSelect={() => setMobileOpen(false)} className="mt-4 w-full" />
           </div>
         ) : null}
       </div>

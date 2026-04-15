@@ -12,7 +12,7 @@ const AVATARS = [
   { initials: 'RM', bg: 'bg-luma-gold' },
 ]
 
-export function Hero() {
+export function HeroSection() {
   return (
     <Section
       id={SECTION_IDS.HERO}
