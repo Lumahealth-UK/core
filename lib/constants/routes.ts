@@ -1,6 +1,6 @@
 // Section anchors on the single-page homepage (e.g. /#pricing).
 
-export const MARKETING_PATH = '/' as const
+export const LANDING_PAGE = '/' as const
 
 export const SECTION_IDS = {
   HERO: 'hero',
@@ -21,5 +21,5 @@ export type SectionId = (typeof SECTION_IDS)[keyof typeof SECTION_IDS]
 
 /** Anchor href for a section, e.g. '/#pricing' */
 export function sectionHref(id: SectionId): string {
-  return `${MARKETING_PATH}#${id}`
+  return `${LANDING_PAGE}#${id}`
 }

@@ -2,8 +2,16 @@
 
 import Link from 'next/link'
 import { SECTION_IDS, sectionHref } from '@/lib/constants/routes'
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
-import { buttonVariants } from '@/components/ui/button'
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
+import { Button, buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 interface WaitlistRoleDialogProps {
@@ -22,12 +30,9 @@ export function WaitlistRoleDialog({
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button
-          type="button"
-          className={cn(buttonVariants({ variant: 'default', size: triggerSize }), triggerClassName)}
-        >
+        <Button type="button" variant="default" size={triggerSize} className={triggerClassName}>
           {triggerLabel}
-        </button>
+        </Button>
       </DialogTrigger>
 
       <DialogContent className="max-w-md rounded-[2rem] border-luma-hairline bg-background p-8 shadow-popup [&>button]:hidden">
@@ -35,9 +40,6 @@ export function WaitlistRoleDialog({
           <DialogTitle className="font-display text-3xl font-bold tracking-tight text-main-text">
             You are a:
           </DialogTitle>
-          <DialogDescription className="max-w-sm text-sm leading-relaxed text-muted-text">
-            Choose the option that fits you best so we can send you to the right next step.
-          </DialogDescription>
         </DialogHeader>
 
         <div className="grid gap-3 sm:grid-cols-2">

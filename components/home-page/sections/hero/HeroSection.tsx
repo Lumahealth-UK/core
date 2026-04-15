@@ -1,7 +1,10 @@
+import Link from 'next/link'
 import { Section } from '@/components/primitives/Section'
 import { sectionHref, SECTION_IDS } from '@/lib/constants/routes'
 import { cn } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'
+import { Button, buttonVariants } from '@/components/ui/button'
+import { WaitlistRoleDialog } from '@/components/home-page/WaitlistRoleDialog'
 import { FeatureCards } from './FeatureCards'
 
 const AVATARS = [
@@ -70,22 +73,19 @@ export function HeroSection() {
 
           {/* CTAs */}
           <div className="flex flex-wrap items-center gap-4">
-            <a
-              href={sectionHref(SECTION_IDS.CONTACT)}
-              className={cn(
-                'inline-flex items-center rounded-full px-7 py-3 xl:px-8 xl:py-3.5',
-                'bg-luma-coral text-sm font-semibold text-white xl:text-base',
-                'hover:bg-luma-coral-deep transition-colors'
-              )}
+            <WaitlistRoleDialog
+              triggerLabel="Join the waitlist — it&apos;s free →"
+              triggerSize="lg"
+              triggerClassName="xl:px-8 xl:py-3.5 xl:text-base"
+            />
+            <Button
+              asChild
+              variant="link"
+              size="md"
+              className={cn(buttonVariants({ variant: 'link', size: 'md' }), 'px-0 text-main-text hover:text-luma-coral')}
             >
-              Join the waitlist — it&apos;s free →
-            </a>
-            <a
-              href={sectionHref(SECTION_IDS.HOW_IT_WORKS)}
-              className="text-sm font-semibold text-main-text transition-colors hover:text-luma-coral"
-            >
-              See how it works ↓
-            </a>
+              <Link href={sectionHref(SECTION_IDS.HOW_IT_WORKS)}>See how it works ↓</Link>
+            </Button>
           </div>
         </div>
 

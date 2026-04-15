@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { WaitlistRoleDialog } from '@/components/home-page/WaitlistRoleDialog'
 import { NAV_LINKS } from '@/lib/constants/site'
-import { SECTION_IDS, sectionHref } from '@/lib/constants/routes'
+import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 const OBSERVER_THRESHOLD = [0, 0.1, 0.25, 0.5, 0.75, 1]
@@ -102,8 +102,13 @@ function navLinkActive(href: string, activeSection: string) {
 
 function HamburgerIcon({ open }: { open: boolean }) {
   if (open) {
-    return <span className="text-xl leading-none" aria-hidden>×</span>
+    return (
+      <span className="text-xl leading-none" aria-hidden>
+        ×
+      </span>
+    )
   }
+
   return (
     <span className="flex flex-col gap-1.5" aria-hidden>
       <span className="h-0.5 w-5 rounded-full bg-main-text" />
@@ -181,36 +186,37 @@ export function Navbar() {
         <div className="flex items-center justify-between gap-3">
           <Link
             href="/"
-            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-            className="nav-logo font-display text-xl font-bold tracking-tight text-main-text sm:text-2xl shrink-0"
+            onClick={(event) => {
+              event.preventDefault()
+              window.scrollTo({ top: 0, behavior: 'smooth' })
+            }}
+            className="nav-logo shrink-0 font-display text-xl font-bold tracking-tight text-main-text sm:text-2xl"
           >
             Luma<em className="text-luma-coral-deep">Health</em>
           </Link>
 
-          <NavLinks layout="row" className="hidden lg:flex flex-1 justify-center min-w-0 px-2" />
+          <NavLinks layout="row" className="hidden min-w-0 flex-1 justify-center px-2 lg:flex" />
 
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex shrink-0 items-center gap-2">
             <NavCta className="hidden lg:inline-flex" />
 
-            <button
+            <Button
               type="button"
-              className="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border border-luma-hairline text-main-text"
+              variant="outline"
+              size="icon"
+              className="lg:hidden border-luma-hairline text-main-text shadow-none"
               aria-expanded={mobileOpen}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-              onClick={() => setMobileOpen((o) => !o)}
+              onClick={() => setMobileOpen((open) => !open)}
             >
               <HamburgerIcon open={mobileOpen} />
-            </button>
+            </Button>
           </div>
         </div>
 
         {mobileOpen ? (
           <div className="border-t border-luma-hairline pt-4 lg:hidden">
-            <NavLinks
-              layout="stack"
-              onNavigate={() => setMobileOpen(false)}
-              className="pb-1"
-            />
+            <NavLinks layout="stack" onNavigate={() => setMobileOpen(false)} className="pb-1" />
             <NavCta onRoleSelect={() => setMobileOpen(false)} className="mt-4 w-full" />
           </div>
         ) : null}
