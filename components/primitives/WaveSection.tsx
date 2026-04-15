@@ -93,7 +93,7 @@ export function WaveSection({
         <WaveSvg path={PATHS.top.front} color={topWave.front} position="top" depth="front" />
       )}
 
-      <section id={id} className={cn('py-24 md:py-32', className)}>
+      <section id={id} className={cn('scroll-mt-28 py-24 md:py-32', className)}>
         <div className={cn('mx-auto max-w-6xl px-6', containerClassName)}>
           {children}
         </div>

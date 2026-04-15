@@ -2,42 +2,102 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { SITE_NAME, NAV_LINKS } from '@/lib/constants/site'
+import { NAV_LINKS } from '@/lib/constants/site'
 import { SECTION_IDS, sectionHref } from '@/lib/constants/routes'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
-function useHashFragment() {
-  const [hash, setHash] = useState('')
+const OBSERVER_THRESHOLD = [0, 0.1, 0.25, 0.5, 0.75, 1]
+const OBSERVER_ROOT_MARGIN = '-96px 0px -55% 0px'
+
+function useActiveSection() {
+  const [activeSection, setActiveSection] = useState('')
 
   useEffect(() => {
-    const read = () => setHash(window.location.hash.replace(/^#/, ''))
-    const onDocumentClick = (event: MouseEvent) => {
-      const target = event.target as Element | null
-      const anchor = target?.closest('a[href]') as HTMLAnchorElement | null
-      if (!anchor) return
+    const sectionIds = NAV_LINKS.map((link) => link.href)
+      .filter((href) => href.startsWith('/#'))
+      .map((href) => href.slice(2))
 
-      const href = anchor.getAttribute('href')
-      if (!href || (!href.startsWith('/#') && !href.startsWith('#'))) return
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => section !== null)
 
-      const nextHash = href.startsWith('#') ? href.slice(1) : href.slice(2)
-      setHash(nextHash)
+    if (!sections.length) return
+
+    const visibleSections = new Map<string, number>()
+
+    const resolveFromVisibleSections = (currentSection: string) => {
+      if (!visibleSections.size) {
+        if (window.scrollY < 80) return ''
+
+        const pageBottom = window.scrollY + window.innerHeight
+        const documentBottom = document.documentElement.scrollHeight - 8
+        if (pageBottom >= documentBottom) {
+          return sections.at(-1)?.id ?? ''
+        }
+
+        return currentSection
+      }
+
+      const candidates = sections.filter((section) => visibleSections.has(section.id))
+      candidates.sort((a, b) => {
+        const aTopOffset = Math.abs(a.getBoundingClientRect().top - 112)
+        const bTopOffset = Math.abs(b.getBoundingClientRect().top - 112)
+        return aTopOffset - bTopOffset
+      })
+
+      return candidates[0]?.id ?? ''
     }
 
-    window.addEventListener('hashchange', read)
-    document.addEventListener('click', onDocumentClick)
+    const updateActiveSection = () =>
+      setActiveSection((current) => {
+        const next = resolveFromVisibleSections(current)
+        return next === current ? current : next
+      })
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            visibleSections.set(entry.target.id, entry.intersectionRatio)
+          } else {
+            visibleSections.delete(entry.target.id)
+          }
+        }
+
+        updateActiveSection()
+      },
+      {
+        root: null,
+        rootMargin: OBSERVER_ROOT_MARGIN,
+        threshold: OBSERVER_THRESHOLD,
+      }
+    )
+
+    const syncHashSection = () => {
+      const hash = window.location.hash.replace(/^#/, '')
+      if (hash && sectionIds.includes(hash)) {
+        setActiveSection(hash)
+      }
+    }
+
+    sections.forEach((section) => observer.observe(section))
+    syncHashSection()
+    updateActiveSection()
+    window.addEventListener('hashchange', syncHashSection)
+
     return () => {
-      window.removeEventListener('hashchange', read)
-      document.removeEventListener('click', onDocumentClick)
+      observer.disconnect()
+      window.removeEventListener('hashchange', syncHashSection)
     }
   }, [])
 
-  return hash
+  return activeSection
 }
 
-function navLinkActive(href: string, hash: string) {
+function navLinkActive(href: string, activeSection: string) {
   if (!href.startsWith('/#')) return false
-  return href.slice(2) === hash
+  return href.slice(2) === activeSection
 }
 
 function HamburgerIcon({ open }: { open: boolean }) {
@@ -72,7 +132,7 @@ interface NavLinksProps {
 }
 
 function NavLinks({ className, onNavigate, layout }: NavLinksProps) {
-  const hash = useHashFragment()
+  const activeSection = useActiveSection()
 
   return (
     <ul
@@ -84,7 +144,7 @@ function NavLinks({ className, onNavigate, layout }: NavLinksProps) {
       )}
     >
       {NAV_LINKS.map((link) => {
-        const active = navLinkActive(link.href, hash)
+        const active = navLinkActive(link.href, activeSection)
         const sage = 'variant' in link && link.variant === 'sage'
 
         return (

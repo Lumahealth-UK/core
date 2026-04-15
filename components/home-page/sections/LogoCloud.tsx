@@ -1,5 +1,5 @@
-import { Section } from '@/components/primitives/Section'
 import Image from 'next/image'
+import { Section } from '@/components/primitives/Section'
 
 const LOGOS = [
   {
@@ -42,10 +42,8 @@ const LOGOS = [
 
 export function LogoCloud() {
   return (
-    <Section className="pt-8 pb-12 sm:pt-10 md:pt-14 md:pb-16 lg:pt-16">
-      <p className="mb-8 text-center text-sm font-medium text-muted-text">
-        Trusted by students at
-      </p>
+    <Section className="bg-beige pt-8 pb-12 sm:pt-10 md:pt-14 md:pb-16 lg:pt-16">
+      <p className="mb-8 text-center text-sm font-medium text-muted-text">Trusted by students at</p>
       <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8">
         {LOGOS.map((logo) => (
           <div
