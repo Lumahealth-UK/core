@@ -45,15 +45,15 @@ function FeaturedCard({ t, reduced }: { t: Testimonial; reduced: boolean }) {
   return (
     <motion.figure
       className="flex flex-col justify-between rounded-3xl p-7 min-h-72 bg-luma-espresso"
-      initial={{ opacity: 0, x: -24 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={reduced ? false : { x: -24 }}
+      whileInView={reduced ? undefined : { x: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={reduced ? { duration: 0 } : { duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="space-y-3">
         <Stars rating={t.rating} light />
         <span
-          className="block font-display text-5xl leading-none text-luma-coral"
+          className="block font-heading text-5xl leading-none text-luma-coral"
           aria-hidden="true"
         >
           &ldquo;
@@ -78,9 +78,9 @@ function FeaturedCard({ t, reduced }: { t: Testimonial; reduced: boolean }) {
 function RegularCard({ t, index, reduced }: { t: Testimonial; index: number; reduced: boolean }) {
   return (
     <motion.figure
-      className="flex flex-col justify-between rounded-3xl bg-white p-6 shadow-card"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      className="flex flex-col justify-between rounded-3xl border border-luma-hairline bg-white p-6 shadow-card"
+      initial={reduced ? false : { y: 20 }}
+      whileInView={reduced ? undefined : { y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={
         reduced
@@ -91,7 +91,7 @@ function RegularCard({ t, index, reduced }: { t: Testimonial; index: number; red
       <div className="space-y-3">
         <Stars rating={t.rating} />
         <span
-          className="block font-display text-4xl leading-none text-luma-coral"
+          className="block font-heading text-4xl leading-none text-luma-coral"
           aria-hidden="true"
         >
           &ldquo;
@@ -116,6 +116,8 @@ function RegularCard({ t, index, reduced }: { t: Testimonial; index: number; red
 export function StudentStoriesClient({ testimonials }: { testimonials: Testimonial[] }) {
   const reduced = useReducedMotion() ?? false
   const [featured, ...rest] = testimonials
+
+  if (!featured) return null
 
   return (
     <div className="mt-14 grid gap-4 lg:grid-cols-[2fr_3fr]">

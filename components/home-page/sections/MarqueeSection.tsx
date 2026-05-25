@@ -5,7 +5,7 @@
 export function MarqueeSection() {
   const items = [
     'BACP Accredited',
-    'From £25 per session',
+    'From $32 per session',
     'Same-week appointments',
     'Video & phone sessions',
     'CBT · Mindfulness · ACT',

@@ -4,10 +4,13 @@ import { CrisisBar } from '@/components/home-page/sections/CrisisBar'
 import { HeroSection } from '@/components/home-page/sections/hero/HeroSection'
 import { MarqueeSection } from '@/components/home-page/sections/MarqueeSection'
 import { LogoCloudSection } from '@/components/home-page/sections/LogoCloudSection'
+import { WhoItsForSection } from '@/components/home-page/sections/WhoItsForSection'
 import { HowItWorksSection } from '@/components/home-page/sections/how-it-works/HowItWorksSection'
+import { WhatYouGetSection } from '@/components/home-page/sections/WhatYouGetSection'
 import { StudentStoriesSection } from '@/components/home-page/sections/student-stories/StudentStoriesSection'
 import { EvidenceSection } from '@/components/home-page/sections/evidence/EvidenceSection'
-import { PricingSection } from '@/components/home-page/sections/pricing/PricingSection'
+import { TrustSafetySection } from '@/components/home-page/sections/TrustSafetySection'
+// import { PricingSection } from '@/components/home-page/sections/pricing/PricingSection'
 import { TherapistsSection } from '@/components/home-page/sections/therapists/TherapistsSection'
 import { BlogPreviewSection } from '@/components/home-page/sections/blog-preview/BlogPreviewSection'
 import { CtaSection } from '@/components/home-page/sections/CtaSection'
@@ -23,10 +26,13 @@ export function HomePage() {
         <HeroSection />
         <MarqueeSection />
         <LogoCloudSection />
+        <WhoItsForSection />
         <HowItWorksSection />
+        <WhatYouGetSection />
         <TherapistsSection />
         <EvidenceSection />
-        <PricingSection />
+        <TrustSafetySection />
+        {/* <PricingSection /> */}
         <StudentStoriesSection />
         <OurStorySection />
         <FaqSection />

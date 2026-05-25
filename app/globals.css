@@ -11,9 +11,9 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
-  /* Headlines (Figma: Fraunces) — use font-display / font-serif */
-  --font-display: var(--font-display);
-  --font-serif: var(--font-fraunces);
+  /* Headlines: Cooper BT Bold. Body + labels: Inter Regular. */
+  --font-heading: var(--font-heading);
+  --font-serif: var(--font-heading);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -87,36 +87,48 @@
 }
 
 :root {
-  /* Body + labels: DM Sans · Headlines: Fraunces */
-  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  /* Body + labels: Inter Regular · Headlines: Cooper BT Bold */
+  --font-sans: var(--font-inter), Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-cooper), "Cooper BT", "Cooper Std Black", "Cooper Black", Georgia, serif;
   --font-geist-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* ── Primitives (hex / alpha lives here only) ── */
+  /* ── Brand palette: brown, coral, sage ── */
+  --luma-brown-950: #251d12;
+  --luma-brown-900: #2e2416;
+  --luma-brown-800: #3d2f1e;
+  --luma-brown-700: #5f4930;
+  --luma-brown-500: #8a745d;
+  --luma-brown-200: #e7ded2;
+  --luma-brown-100: #f4eee7;
+  --luma-brown-50: #fbf8f4;
+
   --luma-coral: #f47b66;
   --luma-coral-deep: #c45a41;
   --luma-coral-light: #f9a08f;
   --luma-coral-tint: #fdf0ec;
-  --luma-snow: #ffffff;
-  --luma-cream: #f2f1ec;
-  --luma-canvas: #f7f4ef;
-  --luma-ink: #1f1f1f;
-  --luma-ink-soft: hsl(0 0% 36%);
-  --luma-ink-faint: #8e8e93;
-  --luma-line: hsl(0 0% 89%);
-  --luma-line-strong: hsl(0 0% 82%);
-  --luma-hairline: rgba(0, 0, 0, 0.07);
+
   --luma-sage: #8baf8b;
-  --luma-sage-soft: #ebf3eb;
   --luma-sage-deep: #6a9a6a;
-  --luma-lilac: #c5b8e8;
-  --luma-sky: #a8c8e8;
-  --luma-gold: #f5d84b;
-  --luma-espresso: #2e2416;
-  --luma-mocha: #3d2f1e;
-  --luma-ink-footer: #251d12;
-  --luma-wood: #2c2418;
-  --luma-wood-mid: #3a3020;
+  --luma-sage-soft: #ebf3eb;
+
+  /* Compatibility aliases: keep old token names, collapse them into the three-color system. */
+  --luma-snow: #ffffff;
+  --luma-cream: var(--luma-brown-100);
+  --luma-canvas: var(--luma-brown-50);
+  --luma-ink: var(--luma-brown-950);
+  --luma-ink-soft: var(--luma-brown-700);
+  --luma-ink-faint: var(--luma-brown-500);
+  --luma-line: var(--luma-brown-200);
+  --luma-line-strong: color-mix(in srgb, var(--luma-brown-700) 24%, white);
+  --luma-hairline: color-mix(in srgb, var(--luma-brown-950) 9%, transparent);
+  --luma-lilac: var(--luma-coral-light);
+  --luma-sky: var(--luma-sage);
+  --luma-gold: var(--luma-coral-light);
+  --luma-espresso: var(--luma-brown-900);
+  --luma-mocha: var(--luma-brown-800);
+  --luma-ink-footer: var(--luma-brown-950);
+  --luma-wood: var(--luma-brown-900);
+  --luma-wood-mid: var(--luma-brown-800);
 
   /* ── shadcn semantic (references only) ── */
   --background: var(--luma-snow);
@@ -135,7 +147,7 @@
   --muted-foreground: var(--luma-ink-soft);
   --accent: var(--luma-coral);
   --accent-foreground: var(--luma-snow);
-  --destructive: hsl(0 84% 60%);
+  --destructive: var(--luma-coral-deep);
   --destructive-foreground: var(--luma-snow);
   --border: var(--luma-line);
   --input: var(--luma-line);
@@ -144,12 +156,12 @@
 
   --chart-1: var(--luma-coral);
   --chart-2: var(--luma-coral-light);
-  --chart-3: #e85d44;
-  --chart-4: var(--luma-cream);
-  --chart-5: #686868;
+  --chart-3: var(--luma-sage);
+  --chart-4: var(--luma-brown-200);
+  --chart-5: var(--luma-brown-700);
   --radius: 0.625rem;
 
-  --sidebar: #fafafa;
+  --sidebar: var(--luma-brown-50);
   --sidebar-foreground: var(--luma-ink);
   --sidebar-primary: var(--luma-coral);
   --sidebar-primary-foreground: var(--luma-snow);
@@ -158,9 +170,9 @@
   --sidebar-border: var(--luma-line);
   --sidebar-ring: var(--luma-coral);
 
-  --footer-bg: hsl(0 0% 12%);
-  --footer-text: hsl(0 0% 96%);
-  --footer-muted: hsl(0 0% 65%);
+  --footer-bg: var(--luma-brown-950);
+  --footer-text: var(--luma-brown-50);
+  --footer-muted: var(--luma-brown-200);
 
   /* Legacy Tailwind names → semantic */
   --beige: var(--background-alt);
@@ -170,34 +182,34 @@
 }
 
 .dark {
-  --luma-snow: hsl(0 0% 10%);
-  --luma-cream: hsl(0 0% 18%);
-  --luma-canvas: hsl(0 0% 12%);
-  --luma-ink: hsl(0 0% 96%);
-  --luma-ink-soft: hsl(0 0% 65%);
-  --luma-ink-faint: hsl(0 0% 55%);
-  --luma-line: hsl(0 0% 20%);
-  --luma-line-strong: hsl(0 0% 28%);
-  --luma-hairline: rgba(255, 255, 255, 0.12);
+  --luma-snow: var(--luma-brown-950);
+  --luma-cream: var(--luma-brown-900);
+  --luma-canvas: var(--luma-brown-950);
+  --luma-ink: var(--luma-brown-50);
+  --luma-ink-soft: var(--luma-brown-200);
+  --luma-ink-faint: var(--luma-brown-500);
+  --luma-line: color-mix(in srgb, var(--luma-brown-100) 12%, transparent);
+  --luma-line-strong: color-mix(in srgb, var(--luma-brown-100) 20%, transparent);
+  --luma-hairline: color-mix(in srgb, var(--luma-brown-100) 12%, transparent);
 
   --background: var(--luma-snow);
-  --background-light: hsl(0 0% 10%);
+  --background-light: var(--luma-brown-950);
   --background-alt: var(--luma-cream);
   --foreground: var(--luma-ink);
-  --card: hsl(0 0% 13%);
+  --card: var(--luma-brown-900);
   --card-foreground: var(--luma-ink);
   --popover: var(--luma-snow);
   --popover-foreground: var(--luma-ink);
   --primary: var(--luma-coral);
-  --primary-foreground: #ffffff;
+  --primary-foreground: var(--luma-brown-50);
   --secondary: var(--luma-cream);
   --secondary-foreground: var(--luma-ink);
   --muted: var(--luma-cream);
   --muted-foreground: var(--luma-ink-soft);
   --accent: var(--luma-coral);
-  --accent-foreground: #ffffff;
-  --destructive: hsl(0 62% 50%);
-  --destructive-foreground: #ffffff;
+  --accent-foreground: var(--luma-brown-50);
+  --destructive: var(--luma-coral-deep);
+  --destructive-foreground: var(--luma-brown-50);
   --border: var(--luma-line);
   --input: var(--luma-line);
   --input-border: var(--luma-line-strong);
@@ -205,21 +217,21 @@
 
   --chart-1: var(--luma-coral);
   --chart-2: var(--luma-coral-light);
-  --chart-3: #e85d44;
-  --chart-4: hsl(0 0% 25%);
-  --chart-5: hsl(0 0% 55%);
-  --sidebar: hsl(0 0% 13%);
+  --chart-3: var(--luma-sage);
+  --chart-4: var(--luma-brown-700);
+  --chart-5: var(--luma-brown-200);
+  --sidebar: var(--luma-brown-900);
   --sidebar-foreground: var(--luma-ink);
   --sidebar-primary: var(--luma-coral);
-  --sidebar-primary-foreground: #ffffff;
+  --sidebar-primary-foreground: var(--luma-brown-50);
   --sidebar-accent: var(--luma-cream);
   --sidebar-accent-foreground: var(--luma-ink);
   --sidebar-border: var(--luma-line);
   --sidebar-ring: var(--luma-coral);
 
-  --footer-bg: hsl(0 0% 5%);
-  --footer-text: hsl(0 0% 90%);
-  --footer-muted: hsl(0 0% 55%);
+  --footer-bg: var(--luma-brown-950);
+  --footer-text: var(--luma-brown-50);
+  --footer-muted: var(--luma-brown-200);
 
   --beige: var(--background-alt);
   --main-text: var(--foreground);

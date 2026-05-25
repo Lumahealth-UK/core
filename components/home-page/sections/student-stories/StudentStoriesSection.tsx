@@ -6,13 +6,13 @@ import { StudentStoriesClient } from './StudentStoriesClient'
 
 export function StudentStoriesSection() {
   return (
-    <Section id={SECTION_IDS.STUDENT_STORIES}>
+    <Section id={SECTION_IDS.STUDENT_STORIES} className="bg-white">
       <SectionHeader
         eyebrow="Student stories"
         title={
           <>
             Real students,{' '}
-            <em className="block not-italic italic font-display text-luma-coral">
+            <em className="block not-italic italic font-heading text-luma-coral">
               real change.
             </em>
           </>

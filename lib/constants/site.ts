@@ -10,7 +10,7 @@ export const SITE_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://lumahealth.c
 export const NAV_LINKS = [
   { label: 'How it works', href: sectionHref(SECTION_IDS.HOW_IT_WORKS) },
   { label: 'Therapists', href: sectionHref(SECTION_IDS.THERAPISTS) },
-  { label: 'Pricing', href: sectionHref(SECTION_IDS.PRICING) },
+  // { label: 'Pricing', href: sectionHref(SECTION_IDS.PRICING) },
   { label: 'Our story', href: sectionHref(SECTION_IDS.OUR_STORY) },
   { label: 'FAQ', href: sectionHref(SECTION_IDS.FAQ) },
   { label: 'Blog', href: sectionHref(SECTION_IDS.BLOG) },

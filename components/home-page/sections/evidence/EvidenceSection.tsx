@@ -1,4 +1,4 @@
-import { Section } from '@/components/primitives/Section'
+import { WaveSection } from '@/components/primitives/WaveSection'
 import { SECTION_IDS, sectionHref } from '@/lib/constants/routes'
 import { cn } from '@/lib/utils'
 import { type ComparisonRow, COMPARISON_ROWS } from './evidence-data'
@@ -6,12 +6,12 @@ import { type ComparisonRow, COMPARISON_ROWS } from './evidence-data'
 function PrimaryStat() {
   return (
     <div className="flex items-center gap-6 rounded-2xl border border-luma-hairline bg-white p-7 shadow-[0_10px_30px_rgba(61,47,30,0.06)]">
-      <p className="shrink-0 font-display text-6xl font-bold leading-none text-luma-coral">
-        1 in 4
+      <p className="shrink-0 font-heading text-6xl font-bold leading-none text-luma-coral">
+        17.9%
       </p>
       <div className="h-12 w-px shrink-0 bg-luma-hairline" aria-hidden="true" />
       <p className="text-sm leading-snug text-luma-mocha/75">
-        UK students experience a mental health problem this year
+        of UK undergraduates reported a mental health challenge in 2024
       </p>
     </div>
   )
@@ -30,7 +30,7 @@ function SecondaryStat({
     <div className="rounded-2xl border border-luma-hairline bg-white p-5 shadow-[0_6px_22px_rgba(61,47,30,0.04)]">
       <p
         className={cn(
-          'font-display text-4xl font-bold leading-none',
+          'font-heading text-4xl font-bold leading-none',
           dimmed ? 'text-luma-coral-light' : 'text-luma-coral-deep',
         )}
       >
@@ -111,29 +111,34 @@ function ComparisonTable({ rows }: { rows: ComparisonRow[] }) {
 
 export function EvidenceSection() {
   return (
-    <Section id={SECTION_IDS.EVIDENCE} className="bg-white">
+    <WaveSection
+      id={SECTION_IDS.EVIDENCE}
+      className="bg-luma-espresso"
+      topWave={{ front: 'white', back: 'var(--color-luma-mocha)' }}
+      bottomWave={{ front: 'white', back: 'var(--color-luma-mocha)' }}
+    >
       <div className="grid grid-cols-1 gap-14 lg:grid-cols-[5fr_7fr] lg:items-center lg:gap-20">
         {/* LEFT: Narrative */}
         <div className="flex flex-col space-y-7">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-luma-coral">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-luma-coral-light">
             The Evidence
           </p>
 
-          <h2 className="font-display text-4xl font-bold leading-tight text-luma-mocha md:text-5xl">
+          <h2 className="font-heading text-4xl font-bold leading-tight text-white md:text-5xl">
             This isn&rsquo;t just{' '}
-            <em className="not-italic text-luma-coral">good to have.</em>
+            <em className="not-italic text-luma-coral-light">good to have.</em>
             <br />
             It&rsquo;s urgent.
           </h2>
 
-          <p className="text-base leading-relaxed text-luma-mocha/75">
-            1 in 4 UK students face a mental health crisis during their degree.
-            Most never access support. Luma changes that — fast, affordable, and human.
+          <p className="text-base leading-relaxed text-white/62">
+            UK undergraduate mental health difficulties have nearly tripled since 2017.
+            Luma is being built for faster, affordable access to student-aware support.
           </p>
 
           <div>
             <a
-              href={sectionHref(SECTION_IDS.PRICING)}
+              href={sectionHref(SECTION_IDS.CONTACT)}
               className={cn(
                 'inline-flex items-center gap-2 rounded-full px-7 py-3.5',
                 'bg-luma-coral text-sm font-semibold text-white',
@@ -154,18 +159,18 @@ export function EvidenceSection() {
           <div className="grid grid-cols-2 gap-4">
             <SecondaryStat
               value="75%"
-              label="Who need help never access professional support"
+              label="NHS Talking Therapies target for starting treatment within 6 weeks"
               dimmed
             />
             <SecondaryStat
-              value="97%"
-              label="Of Luma users report improvement after 3 sessions"
+              value="67.4%"
+              label="Of NHS Talking Therapies completers showed reliable improvement in May 2024"
             />
           </div>
 
           <ComparisonTable rows={COMPARISON_ROWS} />
         </div>
       </div>
-    </Section>
+    </WaveSection>
   )
 }

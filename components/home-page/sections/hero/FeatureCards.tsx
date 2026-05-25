@@ -22,7 +22,7 @@ const CARDS = [
     title: 'Book in minutes',
     description:
       'Schedule sessions around lectures and exams — evenings, weekends, whenever suits you.',
-    badge: 'From £25 / session',
+    badge: 'From $32 / session',
     badgeClass: 'bg-luma-coral/15 text-white',
     side: 'right' as const,
     offset: '-mr-2',
@@ -31,10 +31,10 @@ const CARDS = [
   {
     icon: <TrendingUp className="h-5 w-5" />,
     iconClass: 'bg-white text-luma-coral',
-    title: 'Real results',
+    title: 'Why it matters',
     description:
-      '97% of students felt better after session 3. Proven outcomes, student-friendly prices.',
-    badge: '97% felt better',
+      'Nearly 1 in 5 UK undergraduates reported a mental health challenge in 2024.',
+    badge: '17.9% affected',
     badgeClass: 'bg-luma-coral/15 text-white',
     side: 'left' as const,
     offset: '-ml-6',
@@ -66,7 +66,7 @@ export function FeatureCards() {
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-start justify-between gap-2">
-                    <h3 className="text-sm font-semibold leading-snug text-white">{title}</h3>
+                    <h3 className="font-heading text-sm font-semibold leading-snug text-white">{title}</h3>
                     <Badge className={cn('shrink-0 border border-white/15 text-[10px]', badgeClass)}>
                       {badge}
                     </Badge>

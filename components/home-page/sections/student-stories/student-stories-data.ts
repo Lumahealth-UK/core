@@ -43,7 +43,7 @@ export const testimonials: Testimonial[] = [
     university: 'UCL',
     year: 'Year 1',
     rating: 5,
-    avatarColor: '#c5b8e8',
+    avatarColor: '#f9a08f',
   },
   {
     quote:
@@ -54,6 +54,6 @@ export const testimonials: Testimonial[] = [
     university: 'Edinburgh',
     year: 'Year 2',
     rating: 4,
-    avatarColor: '#a8c8e8',
+    avatarColor: '#6a9a6a',
   },
 ]

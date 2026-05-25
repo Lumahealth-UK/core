@@ -85,7 +85,7 @@ function TimelineStep({ step, index, isActive, isCurrent }: TimelineStepProps) {
         </div>
 
         <div className="mt-8 space-y-3">
-          <h3 className="text-4xl font-bold leading-[1.05] tracking-tight text-main-text">{step.title}</h3>
+          <h3 className="font-heading text-4xl font-bold leading-[1.05] tracking-tight text-main-text">{step.title}</h3>
           <p className="text-sm leading-relaxed text-muted-text">{step.description}</p>
         </div>
       </motion.article>

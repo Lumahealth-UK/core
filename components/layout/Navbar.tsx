@@ -121,7 +121,7 @@ function HamburgerIcon({ open }: { open: boolean }) {
 function NavCta({ onRoleSelect, className }: { onRoleSelect?: () => void; className?: string }) {
   return (
     <WaitlistRoleDialog
-      triggerLabel="Join waitlist"
+      triggerLabel="I'm interested"
       triggerClassName={className}
       triggerSize="md"
       onRoleSelect={onRoleSelect}
@@ -157,7 +157,7 @@ function NavLinks({ className, onNavigate, layout }: NavLinksProps) {
               href={link.href}
               onClick={onNavigate}
               className={cn(
-                'font-display text-[15px] tracking-tight transition-colors',
+                'font-heading text-[15px] tracking-tight transition-colors',
                 "relative inline-block pb-0.5 after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:ease-out after:content-['']",
                 sage
                   ? active
@@ -190,7 +190,7 @@ export function Navbar() {
               event.preventDefault()
               window.scrollTo({ top: 0, behavior: 'smooth' })
             }}
-            className="nav-logo shrink-0 font-display text-xl font-bold tracking-tight text-main-text sm:text-2xl"
+            className="nav-logo shrink-0 font-heading text-xl font-bold tracking-tight text-main-text sm:text-2xl"
           >
             Luma<em className="text-luma-coral-deep">Health</em>
           </Link>

@@ -57,7 +57,7 @@ export function Footer() {
                 className="object-contain brightness-0 invert"
               />
             </Link>
-            <h3 className="text-xl md:text-2xl font-bold font-display text-footer-fg">
+            <h3 className="text-xl md:text-2xl font-bold font-heading text-footer-fg">
               Luma Health
             </h3>
             <p className="text-sm md:text-base text-footer-muted leading-relaxed max-w-xs">
@@ -67,7 +67,7 @@ export function Footer() {
 
           {/* Company Links Column */}
           <div>
-            <h4 className="text-sm font-semibold text-footer-fg uppercase tracking-wider mb-4 md:mb-6">
+            <h4 className="font-heading text-sm font-semibold text-footer-fg uppercase tracking-wider mb-4 md:mb-6">
               Company
             </h4>
             <nav className="flex flex-col space-y-3">
@@ -85,7 +85,7 @@ export function Footer() {
 
           {/* Support & Legal Column */}
           <div>
-            <h4 className="text-sm font-semibold text-footer-fg uppercase tracking-wider mb-4 md:mb-6">
+            <h4 className="font-heading text-sm font-semibold text-footer-fg uppercase tracking-wider mb-4 md:mb-6">
               Support
             </h4>
             <nav className="flex flex-col space-y-3 mb-6 md:mb-8">
@@ -102,7 +102,7 @@ export function Footer() {
             
             {/* Contact Information */}
             <div className="space-y-2">
-              <h4 className="text-sm font-semibold text-footer-fg uppercase tracking-wider mb-4">
+              <h4 className="font-heading text-sm font-semibold text-footer-fg uppercase tracking-wider mb-4">
                 Contact
               </h4>
               <address className="not-italic text-sm md:text-base text-footer-muted space-y-1">
@@ -115,7 +115,7 @@ export function Footer() {
 
           {/* Social Media & Emergency Column */}
           <div>
-            <h4 className="text-sm font-semibold text-footer-fg uppercase tracking-wider mb-4 md:mb-6">
+            <h4 className="font-heading text-sm font-semibold text-footer-fg uppercase tracking-wider mb-4 md:mb-6">
               Follow Us
             </h4>
             <div className="flex items-center space-x-4 mb-8 md:mb-10">
@@ -136,7 +136,7 @@ export function Footer() {
 
             {/* Emergency Support */}
             <div className="bg-footer-icon-bg/50 rounded-lg p-4 md:p-5 border border-footer-border">
-              <h4 className="text-sm font-semibold text-footer-fg mb-2">
+              <h4 className="font-heading text-sm font-semibold text-footer-fg mb-2">
                 Emergency Support
               </h4>
               <p className="text-xs md:text-sm text-footer-muted mb-3">

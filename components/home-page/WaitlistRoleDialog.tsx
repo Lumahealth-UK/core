@@ -22,7 +22,7 @@ interface WaitlistRoleDialogProps {
 }
 
 export function WaitlistRoleDialog({
-  triggerLabel = 'Join waitlist',
+  triggerLabel = "I'm interested",
   triggerClassName,
   triggerSize = 'md',
   onRoleSelect,
@@ -37,7 +37,7 @@ export function WaitlistRoleDialog({
 
       <DialogContent className="max-w-md rounded-[2rem] border-luma-hairline bg-background p-8 shadow-popup [&>button]:hidden">
         <DialogHeader className="items-center text-center">
-          <DialogTitle className="font-display text-3xl font-bold tracking-tight text-main-text">
+          <DialogTitle className="font-heading text-3xl font-bold tracking-tight text-main-text">
             You are a:
           </DialogTitle>
         </DialogHeader>

@@ -32,19 +32,18 @@ export function HeroSection() {
           </Badge>
 
           {/* Headline */}
-          <h1 className="font-display text-4xl font-bold leading-[1.05] text-main-text sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.75rem]">
+          <h1 className="font-heading text-4xl font-bold leading-[1.05] text-main-text sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.75rem]">
             Therapy that
             <br />
             <em className="italic text-luma-coral">actually gets</em>
             <br />
-            student{' '}
-            <span className="inline-block text-outline-main">life.</span>
+            student <span className="inline-block text-outline-main">life.</span>
           </h1>
 
           {/* Body */}
           <p className="max-w-md text-base text-muted-text md:text-lg xl:max-w-lg xl:text-xl">
-            BACP-accredited therapists matched to your exact needs. Sessions from £25. Built by
-            students, for students — across every UK university.
+            BACP-accredited therapists matched to your exact needs. Sessions from $32. Built by
+            students, for students - across every UK university.
           </p>
 
           {/* Social proof */}
@@ -66,7 +65,8 @@ export function HeroSection() {
             <div>
               <p className="text-sm font-bold text-luma-gold">★★★★★</p>
               <p className="text-sm text-muted-text">
-                <strong className="text-main-text">Recommended by therapists</strong> who support students daily
+                <strong className="text-main-text">Recommended by therapists</strong> who support
+                students daily
               </p>
             </div>
           </div>
@@ -74,7 +74,7 @@ export function HeroSection() {
           {/* CTAs */}
           <div className="flex flex-wrap items-center gap-4">
             <WaitlistRoleDialog
-              triggerLabel="Join the waitlist — it&apos;s free →"
+              triggerLabel="I'm interested →"
               triggerSize="lg"
               triggerClassName="xl:px-8 xl:py-3.5 xl:text-base"
             />
@@ -82,7 +82,10 @@ export function HeroSection() {
               asChild
               variant="link"
               size="md"
-              className={cn(buttonVariants({ variant: 'link', size: 'md' }), 'px-0 text-main-text hover:text-luma-coral')}
+              className={cn(
+                buttonVariants({ variant: 'link', size: 'md' }),
+                'px-0 text-main-text hover:text-luma-coral'
+              )}
             >
               <Link href={sectionHref(SECTION_IDS.HOW_IT_WORKS)}>See how it works ↓</Link>
             </Button>

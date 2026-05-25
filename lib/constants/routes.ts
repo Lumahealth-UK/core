@@ -4,7 +4,10 @@ export const LANDING_PAGE = '/' as const
 
 export const SECTION_IDS = {
   HERO: 'hero',
+  WHO_ITS_FOR: 'who-its-for',
   HOW_IT_WORKS: 'how-it-works',
+  WHAT_YOU_GET: 'what-you-get',
+  TRUST_SAFETY: 'trust-safety',
   STUDENT_STORIES: 'student-stories',
   OUR_STORY: 'our-story',
   EVIDENCE: 'evidence',

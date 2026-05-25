@@ -6,8 +6,8 @@ export interface ComparisonRow {
 }
 
 export const COMPARISON_ROWS: ComparisonRow[] = [
-  { service: 'Luma Health', cost: '£25', wait: 'Same week', isLuma: true },
-  { service: 'Private therapy', cost: '£60', wait: '2–3 weeks' },
+  { service: 'Luma Health', cost: '$32', wait: 'Same week', isLuma: true },
+  { service: 'Private therapy', cost: '£80', wait: '2–3 weeks' },
   { service: 'Uni counselling', cost: 'Free', wait: '6+ weeks' },
   { service: 'NHS IAPT', cost: 'Free', wait: '18+ weeks' },
 ]

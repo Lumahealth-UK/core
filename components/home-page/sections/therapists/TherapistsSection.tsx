@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { WaveSection } from '@/components/primitives/WaveSection'
+import { Section } from '@/components/primitives/Section'
 import { SECTION_IDS } from '@/lib/constants/routes'
 import { cn } from '@/lib/utils'
 import { type Therapist, THERAPISTS, TRUST_SIGNALS } from './therapists-data'
@@ -62,22 +62,20 @@ function TherapistCard({ therapist }: { therapist: Therapist }) {
 
 export function TherapistsSection() {
   return (
-    <WaveSection
+    <Section
       id={SECTION_IDS.THERAPISTS}
-      className="bg-luma-espresso"
+      className="bg-white"
       containerClassName="max-w-[90rem] w-full"
-      topWave={{ front: 'white', back: 'var(--color-luma-mocha)' }}
-      bottomWave={{ front: 'var(--color-beige)', back: 'var(--color-luma-mocha)' }}
     >
       <div className="flex items-start justify-between gap-16">
         <div className="max-w-lg space-y-4">
           <p className="text-xs font-semibold uppercase tracking-widest text-luma-coral">
             Our therapists
           </p>
-          <h2 className="font-display text-4xl font-bold leading-tight text-white md:text-5xl">
+          <h2 className="font-heading text-4xl font-bold leading-tight text-luma-mocha md:text-5xl">
             Every therapist <span className="italic text-luma-coral">vetted,</span> accredited, student-aware.
           </h2>
-          <p className="text-base leading-relaxed text-white/45">
+          <p className="text-base leading-relaxed text-luma-mocha/65">
             All Luma therapists are BACP or UKCP accredited with specific experience working with
             students. No one gets listed without passing our vetting process.
           </p>
@@ -98,18 +96,20 @@ export function TherapistsSection() {
         <div className="hidden shrink-0 flex-col justify-between gap-8 self-stretch pt-1 lg:flex">
           {TRUST_SIGNALS.map((s) => (
             <div key={s.metric} className="text-right">
-              <p className="font-display text-3xl font-bold text-white">{s.metric}</p>
-              <p className="mt-0.5 text-sm text-white/40">{s.label}</p>
+              <p className="font-heading text-3xl font-bold text-luma-mocha">{s.metric}</p>
+              <p className="mt-0.5 text-sm text-luma-mocha/50">{s.label}</p>
             </div>
           ))}
         </div>
       </div>
 
+      {/* Therapist cards are hidden until real Luma therapists are ready to publish.
       <div className="mt-14 grid gap-5 sm:grid-cols-3">
         {THERAPISTS.map((t) => (
           <TherapistCard key={t.name} therapist={t} />
         ))}
       </div>
-    </WaveSection>
+      */}
+    </Section>
   )
 }

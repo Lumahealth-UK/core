@@ -18,24 +18,23 @@ export function CtaSection() {
           <span aria-hidden="true">✦</span>
           <span>
             Launching Spring 2026 ·{' '}
-            <strong className="text-luma-coral-light">Join 2,400+ students</strong> already on the
-            waitlist
+            <strong className="text-luma-coral-light">Early access</strong> interest list now open
           </span>
         </div>
 
-        <h2 className="mt-6 font-display text-4xl font-bold leading-tight md:text-6xl">
+        <h2 className="mt-6 font-heading text-4xl font-bold leading-tight md:text-6xl">
           Your degree is hard.
           <br />
           Getting help <em className="not-italic text-luma-coral-light">shouldn&apos;t be.</em>
         </h2>
 
         <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/55 md:text-lg">
-          Join the waitlist and be first to access Luma when we launch. Early students will get
+          Tell us you&rsquo;re interested and be first to access Luma when we launch. Early students will get
           priority access to the platform.
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <WaitlistRoleDialog triggerLabel="Join the waitlist" triggerSize="lg" />
+          <WaitlistRoleDialog triggerLabel="I'm interested" triggerSize="lg" />
           <Button
             asChild
             size="lg"

@@ -99,7 +99,7 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
       </p>
       <h3
         className={cn(
-          'mt-1 font-display text-2xl font-bold',
+          'mt-1 font-heading text-2xl font-bold',
           featured ? 'text-main-text' : 'text-white',
         )}
       >
@@ -113,7 +113,7 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
       <div className="mt-7">
         <p
           className={cn(
-            'font-display text-5xl font-bold leading-none',
+            'font-heading text-5xl font-bold leading-none',
             featured ? 'text-main-text' : 'text-white',
           )}
         >

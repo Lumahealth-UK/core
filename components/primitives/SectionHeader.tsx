@@ -30,7 +30,7 @@ export function SectionHeader({
       {eyebrow && (
         <Badge variant="eyebrow">{eyebrow}</Badge>
       )}
-      <h2 className="font-display text-4xl font-bold leading-tight text-main-text md:text-5xl">
+      <h2 className="font-heading text-4xl font-bold leading-tight text-main-text md:text-5xl">
         {title}
       </h2>
       {description && (

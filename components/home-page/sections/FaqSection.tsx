@@ -52,7 +52,7 @@ export function FaqSection() {
       <div className="grid gap-10 lg:grid-cols-[22rem_minmax(0,1fr)] lg:gap-16">
         <div className="space-y-4 lg:sticky lg:top-28">
           <p className="text-[11px] font-semibold uppercase tracking-widest text-luma-coral">FAQ</p>
-          <h2 className="font-display text-4xl font-bold leading-tight text-luma-mocha md:text-5xl">
+          <h2 className="font-heading text-4xl font-bold leading-tight text-luma-mocha md:text-5xl">
             Questions, <em className="not-italic text-luma-coral-deep">answered.</em>
           </h2>
           <p className="max-w-md text-base leading-relaxed text-luma-mocha/70">

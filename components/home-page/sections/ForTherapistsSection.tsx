@@ -29,29 +29,16 @@ const perks = [
   },
 ] as const
 
-type TherapistStat = {
-  value: string
-  label: string
-  dark?: boolean
-}
-
-const stats: TherapistStat[] = [
-  { value: '2,400+', label: 'Students already on the waitlist, ready to be matched' },
-  { value: '<48h', label: 'Average time from sign-up to first session booked', dark: true },
-  { value: '96%', label: 'Student satisfaction after their first matched session' },
-  { value: '100%', label: 'BACP or UKCP accreditation required for every listed therapist', dark: true },
-]
-
 export function ForTherapistsSection() {
   return (
-    <Section id={SECTION_IDS.FOR_THERAPISTS} className="bg-luma-sage-soft">
+    <Section id={SECTION_IDS.FOR_THERAPISTS} className="bg-white">
       <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:gap-16">
         <div className="space-y-8">
           <div className="space-y-4">
             <p className="text-[11px] font-semibold uppercase tracking-widest text-luma-sage-deep">
               For therapists
             </p>
-            <h2 className="font-display text-4xl font-bold leading-tight text-luma-mocha md:text-5xl">
+            <h2 className="font-heading text-4xl font-bold leading-tight text-luma-mocha md:text-5xl">
               Join a platform built around{' '}
               <em className="not-italic text-luma-sage-deep">your</em> practice.
             </h2>
@@ -65,13 +52,13 @@ export function ForTherapistsSection() {
             {perks.map(({ title, description, Icon }) => (
               <article
                 key={title}
-                className="flex gap-4 rounded-3xl border border-luma-hairline bg-white p-5 shadow-[0_10px_28px_rgba(61,47,30,0.04)]"
+                className="flex gap-4 rounded-3xl border border-luma-hairline bg-luma-canvas p-5 shadow-[0_10px_28px_rgba(61,47,30,0.04)]"
               >
                 <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-luma-sage-soft text-luma-sage-deep">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="text-base font-semibold text-luma-mocha">{title}</h3>
+                  <h3 className="font-heading text-base font-semibold text-luma-mocha">{title}</h3>
                   <p className="mt-2 text-sm leading-7 text-luma-mocha/70">{description}</p>
                 </div>
               </article>
@@ -86,6 +73,7 @@ export function ForTherapistsSection() {
           </a>
         </div>
 
+        {/* Therapist-side proof cards are hidden until Luma has real launch data and real partners to quote.
         <div className="grid gap-4 sm:grid-cols-2">
           {stats.map((stat) => (
             <article
@@ -99,7 +87,7 @@ export function ForTherapistsSection() {
             >
               <p
                 className={[
-                  'font-display text-4xl font-bold leading-none',
+                  'font-heading text-4xl font-bold leading-none',
                   stat.dark ? 'text-luma-coral-light' : 'text-luma-sage-deep',
                 ].join(' ')}
               >
@@ -126,6 +114,7 @@ export function ForTherapistsSection() {
             </div>
           </article>
         </div>
+        */}
       </div>
     </Section>
   )
