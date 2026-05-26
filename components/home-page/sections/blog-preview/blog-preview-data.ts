@@ -2,22 +2,18 @@ export interface BlogPost {
   title: string
   tag: string
   date: string
+  href: string
+  image: string
+  imageAlt: string
 }
 
 export const posts: BlogPost[] = [
   {
-    title: 'Five signs you might benefit from therapy (and what to do next)',
+    title: "The burnout you don't even know you're in",
     tag: 'Mental health',
-    date: '12 Mar 2025',
-  },
-  {
-    title: 'CBT vs. person-centred therapy: which approach is right for you?',
-    tag: 'Therapy types',
-    date: '3 Feb 2025',
-  },
-  {
-    title: 'How universities can close the student mental health gap in 2025',
-    tag: 'For universities',
-    date: '20 Jan 2025',
+    date: 'Read on Medium',
+    href: 'https://medium.com/@lumahealthuk/the-burnout-you-dont-even-know-you-re-in-83de22b259bf',
+    image: 'https://miro.medium.com/v2/resize:fit:1400/1*CufoQoz0juHxXd1DBmZQ-A.png',
+    imageAlt: 'Illustration for Luma Health UK article about burnout',
   },
 ]

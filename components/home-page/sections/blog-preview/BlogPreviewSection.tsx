@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Section } from '@/components/primitives/Section'
 import { SectionHeader } from '@/components/primitives/SectionHeader'
 import { SECTION_IDS } from '@/lib/constants/routes'
@@ -6,27 +7,34 @@ import { posts } from './blog-preview-data'
 
 export function BlogPreviewSection() {
   return (
-    <Section id={SECTION_IDS.BLOG} className="bg-luma-mocha">
+    <Section id={SECTION_IDS.BLOG} className="bg-white py-8 md:py-12">
       <SectionHeader
         eyebrow="Resources"
         title={<>From the <span className="text-luma-coral">Luma blog</span></>}
         description="Evidence-based articles on mental health, student wellbeing, and self-care."
         centered
-        className="[&_h2]:text-white [&_p]:text-white/55 [&>span]:bg-white/10 [&>span]:text-luma-coral-light"
       />
 
-      <div className="mt-14 grid gap-6 sm:grid-cols-3">
+      <div className="mx-auto mt-8 grid max-w-md gap-6">
         {posts.map((post) => (
-          <Card asChild key={post.title} className="overflow-hidden border-white/10 bg-luma-wood-mid"><article>
-            <div className="h-40 border-b border-dashed border-white/12 bg-luma-espresso flex items-center justify-center text-xs text-white/45">
-              [ Post image ]
-            </div>
-            <div className="p-5 space-y-2">
-              <p className="text-xs text-luma-coral-light font-semibold uppercase tracking-wider">{post.tag}</p>
-              <h3 className="font-heading font-semibold text-white leading-snug">{post.title}</h3>
-              <p className="text-xs text-white/50">{post.date}</p>
-            </div>
-          </article></Card>
+          <Card asChild key={post.title} className="overflow-hidden border-luma-hairline bg-white shadow-card">
+            <a href={post.href} target="_blank" rel="noopener noreferrer" aria-label={`Read ${post.title}`}>
+              <div className="relative aspect-[16/9] border-b border-luma-hairline bg-luma-canvas">
+                <Image
+                  src={post.image}
+                  alt={post.imageAlt}
+                  fill
+                  sizes="(min-width: 640px) 28rem, calc(100vw - 3rem)"
+                  className="object-cover"
+                />
+              </div>
+              <div className="space-y-2 p-5">
+                <p className="text-xs font-semibold uppercase tracking-wider text-luma-coral">{post.tag}</p>
+                <h3 className="font-heading font-semibold leading-snug text-main-text">{post.title}</h3>
+                <p className="text-xs text-muted-text">{post.date}</p>
+              </div>
+            </a>
+          </Card>
         ))}
       </div>
     </Section>

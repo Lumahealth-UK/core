@@ -39,30 +39,13 @@ export function ForTherapistsSection() {
               For therapists
             </p>
             <h2 className="font-heading text-4xl font-bold leading-tight text-luma-mocha md:text-5xl">
-              Join a platform built around{' '}
-              <em className="not-italic text-luma-sage-deep">your</em> practice.
+              Join a platform built around <em className="not-italic text-luma-sage-deep">your</em>{' '}
+              practice.
             </h2>
             <p className="max-w-2xl text-base leading-relaxed text-luma-mocha/70">
-              Luma connects you with students who need the kind of support you already provide
-              best, while keeping booking, communication, and admin simple.
+              Luma connects you with students who need the kind of support you already provide best,
+              while keeping booking, communication, and admin simple.
             </p>
-          </div>
-
-          <div className="space-y-4">
-            {perks.map(({ title, description, Icon }) => (
-              <article
-                key={title}
-                className="flex gap-4 rounded-3xl border border-luma-hairline bg-luma-canvas p-5 shadow-[0_10px_28px_rgba(61,47,30,0.04)]"
-              >
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-luma-sage-soft text-luma-sage-deep">
-                  <Icon className="h-5 w-5" aria-hidden="true" />
-                </div>
-                <div>
-                  <h3 className="font-heading text-base font-semibold text-luma-mocha">{title}</h3>
-                  <p className="mt-2 text-sm leading-7 text-luma-mocha/70">{description}</p>
-                </div>
-              </article>
-            ))}
           </div>
 
           <a
@@ -73,48 +56,20 @@ export function ForTherapistsSection() {
           </a>
         </div>
 
-        {/* Therapist-side proof cards are hidden until Luma has real launch data and real partners to quote.
         <div className="grid gap-4 sm:grid-cols-2">
-          {stats.map((stat) => (
+          {perks.map(({ title, description, Icon }) => (
             <article
-              key={stat.label}
-              className={[
-                'rounded-3xl border p-6 shadow-[0_12px_30px_rgba(61,47,30,0.05)]',
-                stat.dark
-                  ? 'border-luma-mocha bg-luma-mocha text-white'
-                  : 'border-luma-hairline bg-white text-luma-mocha',
-              ].join(' ')}
+              key={title}
+              className="rounded-3xl border border-luma-hairline bg-luma-canvas p-5 shadow-[0_10px_28px_rgba(61,47,30,0.04)]"
             >
-              <p
-                className={[
-                  'font-heading text-4xl font-bold leading-none',
-                  stat.dark ? 'text-luma-coral-light' : 'text-luma-sage-deep',
-                ].join(' ')}
-              >
-                {stat.value}
-              </p>
-              <p className={['mt-3 text-sm leading-7', stat.dark ? 'text-white/60' : 'text-luma-mocha/70'].join(' ')}>
-                {stat.label}
-              </p>
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-luma-sage-soft text-luma-sage-deep">
+                <Icon className="h-5 w-5" aria-hidden="true" />
+              </div>
+              <h3 className="font-heading text-base font-semibold text-luma-mocha">{title}</h3>
+              <p className="mt-2 text-sm leading-7 text-luma-mocha/70">{description}</p>
             </article>
           ))}
-
-          <article className="rounded-3xl border border-luma-hairline bg-white p-6 shadow-[0_12px_30px_rgba(61,47,30,0.05)] sm:col-span-2">
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-luma-sage-deep">
-              Therapist voice
-            </p>
-            <p className="mt-3 text-base leading-8 text-luma-mocha/70">
-              &ldquo;The matching quality genuinely surprised me. The students I meet through Luma
-              are aligned with my specialisms, which makes the work feel more focused from the very
-              first session.&rdquo;
-            </p>
-            <div className="mt-5">
-              <p className="font-semibold text-luma-mocha">Dr. Maya Hassan</p>
-              <p className="text-sm text-luma-mocha/55">BACP Accredited · CBT &amp; ACT · 9 yrs</p>
-            </div>
-          </article>
         </div>
-        */}
       </div>
     </Section>
   )
