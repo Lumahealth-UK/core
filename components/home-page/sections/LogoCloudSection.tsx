@@ -34,7 +34,7 @@ const LOGOS = [
   },
   {
     name: 'UCL',
-    src: '/images/universities/ucl.jpg',
+    src: '/images/universities/ucl.png',
     width: 210,
     height: 56,
   },
