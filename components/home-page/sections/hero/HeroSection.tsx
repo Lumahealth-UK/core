@@ -19,10 +19,10 @@ export function HeroSection() {
   return (
     <Section
       id={SECTION_IDS.HERO}
-      className="flex items-start bg-gradient-to-b from-white to-luma-canvas pt-20 pb-24 md:pt-24 md:pb-28 lg:pb-32"
+      className="relative -mt-44 overflow-hidden flex items-start bg-[radial-gradient(circle_at_18%_18%,rgba(244,123,102,0.18),transparent_28%),radial-gradient(circle_at_78%_16%,rgba(139,175,139,0.22),transparent_30%),linear-gradient(180deg,#ffffff_0%,#fff6f1_48%,var(--color-luma-canvas)_100%)] !pt-56 pb-24 md:pb-28 lg:pb-32"
       containerClassName="max-w-screen-xl w-full"
     >
-      <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-14 xl:gap-20">
+      <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[0.88fr_1.12fr] lg:gap-16 xl:gap-24">
         {/* Left: text content */}
         <div className="flex flex-col items-start gap-7 xl:gap-8">
           {/* Badge */}
@@ -32,7 +32,7 @@ export function HeroSection() {
           </Badge>
 
           {/* Headline */}
-          <h1 className="font-heading text-4xl font-bold leading-[1.05] text-main-text sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.75rem]">
+          <h1 className="font-heading text-4xl font-bold leading-[1.05] text-main-text sm:text-5xl md:text-6xl lg:text-[3.75rem] xl:text-[4.35rem]">
             Therapy that
             <br />
             <em className="italic text-luma-coral">actually gets</em>

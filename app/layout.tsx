@@ -25,6 +25,11 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
+  icons: {
+    icon: '/icons/logo.png',
+    shortcut: '/icons/logo.png',
+    apple: '/icons/logo.png',
+  },
   metadataBase: new URL(SITE_URL),
   openGraph: {
     type: 'website',

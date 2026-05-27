@@ -1,83 +1,99 @@
-import { Heart, Calendar, TrendingUp } from 'lucide-react'
+import { WaitlistRoleDialog } from '@/components/home-page/WaitlistRoleDialog'
 import { cn } from '@/lib/utils'
-import { Badge } from '@/components/ui/badge'
-import { Card } from '@/components/ui/card'
 
-const CARDS = [
-  {
-    icon: <Heart className="h-5 w-5" fill="currentColor" />,
-    iconClass: 'bg-white text-luma-coral',
-    title: 'Matched to your needs',
-    description:
-      'Paired with BACP-accredited therapists based on your concerns, schedule, and preferences.',
-    badge: '96% match score',
-    badgeClass: 'bg-luma-coral-tint text-luma-coral-deep',
-    side: 'left' as const,
-    offset: '-ml-2',
-    delay: '0ms',
-  },
-  {
-    icon: <Calendar className="h-5 w-5" />,
-    iconClass: 'bg-white text-luma-coral',
-    title: 'Book in minutes',
-    description:
-      'Schedule sessions around lectures and exams — evenings, weekends, whenever suits you.',
-    badge: 'From £32 / session',
-    badgeClass: 'bg-luma-coral-tint text-luma-coral-deep',
-    side: 'right' as const,
-    offset: '-mr-2',
-    delay: '150ms',
-  },
-  {
-    icon: <TrendingUp className="h-5 w-5" />,
-    iconClass: 'bg-white text-luma-coral',
-    title: 'Why it matters',
-    description:
-      'Nearly 1 in 5 UK undergraduates reported a mental health challenge in 2024.',
-    badge: '17.9% affected',
-    badgeClass: 'bg-luma-coral-tint text-luma-coral-deep',
-    side: 'left' as const,
-    offset: '-ml-6',
-    delay: '300ms',
-  },
-]
+const moods = ['😞', '😕', '😐', '🙂', '😄'] as const
 
-export function FeatureCards() {
+function TherapistPreviewCard() {
   return (
-    <div className="relative w-full py-4">
-      {/* Decorative background slab */}
-      <div className="absolute left-1/2 top-8 z-0 h-[88%] w-[90%] -translate-x-1/2 rounded-3xl bg-beige shadow-card" />
+    <div className="hero-card-main absolute left-1/2 top-2 z-10 w-[290px] -translate-x-1/2 rounded-[2rem] border border-luma-hairline bg-white p-5 shadow-popup transition-transform duration-300 hover:-translate-y-1">
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-luma-coral-tint text-3xl">
+        👩‍⚕️
+      </div>
 
-      <div className="relative z-10 flex flex-col gap-4">
-        {CARDS.map(({ icon, iconClass, title, description, badge, badgeClass, side, offset, delay }) => (
+      <h3 className="mt-4 font-heading text-lg font-bold leading-tight text-luma-mocha">
+        Student therapist match
+      </h3>
+      <p className="mt-1 text-sm font-medium text-luma-mocha/55">
+        BACP Accredited · CBT &amp; Mindfulness
+      </p>
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        <span className="rounded-full bg-luma-coral-tint px-3 py-1 text-xs font-semibold text-luma-coral-deep">
+          Anxiety
+        </span>
+        <span className="rounded-full bg-luma-coral-tint px-3 py-1 text-xs font-semibold text-luma-coral-deep">
+          Exam stress
+        </span>
+        <span className="rounded-full bg-luma-sage-soft px-3 py-1 text-xs font-semibold text-luma-sage-deep">
+          Same-week slots
+        </span>
+      </div>
+
+      <div className="mt-5 flex items-center justify-between rounded-2xl bg-luma-canvas px-4 py-3">
+        <span className="text-xs font-semibold uppercase tracking-[0.16em] text-luma-mocha/50">
+          Your match score
+        </span>
+        <span className="font-heading text-2xl font-bold text-luma-coral">96%</span>
+      </div>
+
+      <WaitlistRoleDialog
+        triggerLabel="I'm interested - £32"
+        triggerSize="md"
+        triggerClassName="mt-4 w-full"
+      />
+    </div>
+  )
+}
+
+function StatCard() {
+  return (
+    <div className="absolute bottom-8 left-0 z-20 w-[215px] -rotate-3 rounded-[1.65rem] border border-luma-hairline bg-white p-5 shadow-popup transition-transform duration-300 hover:-translate-y-1">
+      <div className="flex items-center gap-4">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-luma-sage-soft text-2xl">
+          🏆
+        </div>
+        <div>
+          <p className="font-heading text-3xl font-bold leading-none text-luma-coral">1 in 5</p>
+          <p className="mt-1 text-xs leading-snug text-luma-mocha/60">
+            UK undergraduates reported a mental health challenge in 2024
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function MoodCard() {
+  return (
+    <div className="absolute bottom-0 right-0 z-20 w-[230px] rotate-2 rounded-[1.65rem] border border-luma-hairline bg-white p-5 shadow-popup transition-transform duration-300 hover:-translate-y-1">
+      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-luma-mocha/50">
+        How are you today?
+      </p>
+      <div className="mt-4 flex items-center justify-between gap-2" aria-hidden="true">
+        {moods.map((mood, index) => (
           <div
-            key={title}
+            key={mood}
             className={cn(
-              'animate-reveal-up [animation-fill-mode:both] w-full max-w-sm',
-              side === 'right' ? 'ml-auto' : 'mr-auto',
-              offset
+              'flex h-9 w-9 items-center justify-center rounded-full text-lg transition-transform duration-200',
+              index === 2
+                ? 'scale-110 bg-luma-coral text-white shadow-[0_8px_18px_rgba(244,123,102,0.28)]'
+                : 'bg-luma-canvas'
             )}
-            style={{ animationDelay: delay }}
           >
-            <Card className="rounded-2xl border border-luma-hairline bg-white p-5 shadow-popup">
-              <div className="flex items-start gap-4">
-                <div className={cn('flex h-11 w-11 shrink-0 items-center justify-center rounded-xl', iconClass)}>
-                  {icon}
-                </div>
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-start justify-between gap-2">
-                    <h3 className="font-heading text-sm font-semibold leading-snug text-luma-mocha">{title}</h3>
-                    <Badge className={cn('shrink-0 border border-luma-hairline text-[10px]', badgeClass)}>
-                      {badge}
-                    </Badge>
-                  </div>
-                  <p className="mt-1.5 text-xs leading-relaxed text-luma-mocha/70">{description}</p>
-                </div>
-              </div>
-            </Card>
+            {mood}
           </div>
         ))}
       </div>
+    </div>
+  )
+}
+
+export function FeatureCards() {
+  return (
+    <div className="relative mx-auto h-[540px] w-full max-w-[560px] animate-reveal-up [animation-fill-mode:both]">
+      <TherapistPreviewCard />
+      <StatCard />
+      <MoodCard />
     </div>
   )
 }

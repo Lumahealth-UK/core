@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { WaitlistRoleDialog } from '@/components/home-page/WaitlistRoleDialog'
@@ -190,9 +191,19 @@ export function Navbar() {
               event.preventDefault()
               window.scrollTo({ top: 0, behavior: 'smooth' })
             }}
-            className="nav-logo shrink-0 font-heading text-xl font-bold tracking-tight text-main-text sm:text-2xl"
+            className="nav-logo flex shrink-0 font-heading text-xl items-end font-bold tracking-tight text-main-text sm:text-2xl"
           >
-            Luma<em className="text-luma-coral-deep">Health</em>
+            <Image
+              src="/icons/logo.png"
+              alt=""
+              width={34}
+              height={34}
+              className="h-10 w-10 object-contain"
+              priority
+            />
+            <span>
+              Luma<em className="text-luma-coral-deep relative">Health</em>
+            </span>
           </Link>
 
           <NavLinks layout="row" className="hidden min-w-0 flex-1 justify-center px-2 lg:flex" />
