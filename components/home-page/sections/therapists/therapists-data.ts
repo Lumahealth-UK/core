@@ -41,6 +41,6 @@ export const THERAPISTS: Therapist[] = [
 
 export const TRUST_SIGNALS: TrustSignal[] = [
   { metric: '100%', label: 'BACP or UKCP accredited' },
-  { metric: '$32', label: 'Planned starting session price' },
+  { metric: '£32', label: 'Planned starting session price' },
   { metric: '2026', label: 'Planned student launch' },
 ]

@@ -52,3 +52,4 @@ public/Fonts/*.ttf
 public/Fonts/*.otf
 !public/Fonts/.gitkeep
 !public/Fonts/README.md
+!public/fonts/CooperLtBT-Bold.ttf

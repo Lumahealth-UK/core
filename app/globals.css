@@ -92,7 +92,7 @@
   --font-heading: var(--font-cooper), "Cooper BT", "Cooper Std Black", "Cooper Black", Georgia, serif;
   --font-geist-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* ── Brand palette: brown, coral, sage ── */
+  /* ── Brand palette: warm beige, coral, sage ── */
   --luma-brown-950: #251d12;
   --luma-brown-900: #2e2416;
   --luma-brown-800: #3d2f1e;
@@ -170,9 +170,9 @@
   --sidebar-border: var(--luma-line);
   --sidebar-ring: var(--luma-coral);
 
-  --footer-bg: var(--luma-brown-950);
-  --footer-text: var(--luma-brown-50);
-  --footer-muted: var(--luma-brown-200);
+  --footer-bg: var(--luma-cream);
+  --footer-text: var(--luma-ink);
+  --footer-muted: var(--luma-ink-soft);
 
   /* Legacy Tailwind names → semantic */
   --beige: var(--background-alt);
@@ -229,9 +229,9 @@
   --sidebar-border: var(--luma-line);
   --sidebar-ring: var(--luma-coral);
 
-  --footer-bg: var(--luma-brown-950);
-  --footer-text: var(--luma-brown-50);
-  --footer-muted: var(--luma-brown-200);
+  --footer-bg: var(--luma-cream);
+  --footer-text: var(--luma-ink);
+  --footer-muted: var(--luma-ink-soft);
 
   --beige: var(--background-alt);
   --main-text: var(--foreground);

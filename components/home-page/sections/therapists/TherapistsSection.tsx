@@ -65,7 +65,7 @@ export function TherapistsSection() {
     <Section
       id={SECTION_IDS.THERAPISTS}
       className="bg-white"
-      containerClassName="max-w-[90rem] w-full"
+      containerClassName="max-w-screen-xl w-full"
     >
       <div className="flex items-start justify-between gap-16">
         <div className="max-w-lg space-y-4">

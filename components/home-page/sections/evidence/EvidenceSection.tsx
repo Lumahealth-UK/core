@@ -113,25 +113,25 @@ export function EvidenceSection() {
   return (
     <WaveSection
       id={SECTION_IDS.EVIDENCE}
-      className="bg-luma-espresso"
-      topWave={{ front: 'white', back: 'var(--color-luma-mocha)' }}
-      bottomWave={{ front: 'white', back: 'var(--color-luma-mocha)' }}
+      className="bg-beige"
+      topWave={{ front: 'white', back: 'var(--color-luma-canvas)' }}
+      bottomWave={{ front: 'white', back: 'var(--color-luma-canvas)' }}
     >
       <div className="grid grid-cols-1 gap-14 lg:grid-cols-[5fr_7fr] lg:items-center lg:gap-20">
         {/* LEFT: Narrative */}
         <div className="flex flex-col space-y-7">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-luma-coral-light">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-luma-coral">
             The Evidence
           </p>
 
-          <h2 className="font-heading text-4xl font-bold leading-tight text-white md:text-5xl">
+          <h2 className="font-heading text-4xl font-bold leading-tight text-luma-mocha md:text-5xl">
             This isn&rsquo;t just{' '}
-            <em className="not-italic text-luma-coral-light">good to have.</em>
+            <em className="not-italic text-luma-coral">good to have.</em>
             <br />
             It&rsquo;s urgent.
           </h2>
 
-          <p className="text-base leading-relaxed text-white/62">
+          <p className="text-base leading-relaxed text-luma-mocha/75">
             UK undergraduate mental health difficulties have nearly tripled since 2017.
             Luma is being built for faster, affordable access to student-aware support.
           </p>

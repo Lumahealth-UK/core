@@ -35,30 +35,30 @@ const values = [
 
 export function OurStorySection() {
   return (
-    <Section id={SECTION_IDS.OUR_STORY} className="bg-luma-mocha">
+    <Section id={SECTION_IDS.OUR_STORY} className="bg-beige">
       <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:gap-16">
         <div className="max-w-2xl space-y-6">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/70">
+          <div className="inline-flex items-center gap-2 rounded-full border border-luma-hairline bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-luma-mocha/70 shadow-[0_8px_24px_rgba(61,47,30,0.05)]">
             <span className="h-2 w-2 rounded-full bg-luma-coral" aria-hidden="true" />
             Est. 2026 · Leeds, UK
           </div>
 
           <div className="space-y-3">
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-luma-coral-light">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-luma-coral">
               Our story
             </p>
-            <h2 className="font-heading text-4xl font-bold leading-tight text-white md:text-5xl">
+            <h2 className="font-heading text-4xl font-bold leading-tight text-luma-mocha md:text-5xl">
               Getting therapy as a student{' '}
-              <em className="not-italic text-luma-coral-light">shouldn&apos;t be</em> this hard.
+              <em className="not-italic text-luma-coral">shouldn&apos;t be</em> this hard.
             </h2>
           </div>
 
-          <p className="text-base leading-relaxed text-white/65">
+          <p className="text-base leading-relaxed text-luma-mocha/70">
             Between deadlines, financial pressure, and feeling isolated, the last thing you need
             is a long waitlist or a price that rules support out before you even begin.
           </p>
 
-          <p className="text-base leading-relaxed text-white/65">
+          <p className="text-base leading-relaxed text-luma-mocha/70">
             Luma Health is built by people who understand student life and want therapy to feel
             easier to access, easier to trust, and easier to keep up with.
           </p>
@@ -68,7 +68,7 @@ export function OurStorySection() {
           {values.map(({ title, description, Icon, iconClassName }) => (
             <article
               key={title}
-              className="rounded-3xl border border-white/10 bg-white p-6 shadow-[0_14px_42px_rgba(0,0,0,0.12)] transition-transform duration-200 hover:-translate-y-1"
+              className="rounded-3xl border border-luma-hairline bg-white p-6 shadow-[0_10px_30px_rgba(61,47,30,0.05)] transition-transform duration-200 hover:-translate-y-1"
             >
               <div
                 className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl ${iconClassName}`}

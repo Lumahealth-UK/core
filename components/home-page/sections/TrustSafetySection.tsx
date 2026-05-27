@@ -30,9 +30,9 @@ export function TrustSafetySection() {
   return (
     <WaveSection
       id={SECTION_IDS.TRUST_SAFETY}
-      className="bg-luma-espresso"
-      topWave={{ front: 'white', back: 'var(--color-luma-mocha)' }}
-      bottomWave={{ front: 'white', back: 'var(--color-luma-mocha)' }}
+      className="bg-beige"
+      topWave={{ front: 'white', back: 'var(--color-luma-canvas)' }}
+      bottomWave={{ front: 'white', back: 'var(--color-luma-canvas)' }}
     >
       <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
         <SectionHeader
@@ -40,24 +40,24 @@ export function TrustSafetySection() {
           title={
             <>
               Built for sensitive conversations, not just{' '}
-              <span className="text-luma-coral-light">smooth sign-up flows.</span>
+              <span className="text-luma-coral">smooth sign-up flows.</span>
             </>
           }
           description="Students need to know what happens to their information, who they are speaking to, and where to go if they need urgent help. This belongs in the product from day one."
-          className="[&_h2]:text-white [&_p]:max-w-xl [&_p]:text-white/62 [&>span]:bg-white/10 [&>span]:text-luma-coral-light"
+          className="[&_p]:max-w-xl"
         />
 
         <div className="grid gap-4 sm:grid-cols-2">
           {safeguards.map(({ title, description, Icon }) => (
             <article
               key={title}
-              className="rounded-3xl border border-white/10 bg-luma-mocha p-6"
+              className="rounded-3xl border border-luma-hairline bg-white p-6"
             >
               <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-luma-sage-soft text-luma-sage-deep">
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </div>
-              <h3 className="font-heading text-xl font-bold leading-tight text-white">{title}</h3>
-              <p className="mt-3 text-sm leading-7 text-white/62">{description}</p>
+              <h3 className="font-heading text-xl font-bold leading-tight text-luma-mocha">{title}</h3>
+              <p className="mt-3 text-sm leading-7 text-luma-mocha/70">{description}</p>
             </article>
           ))}
         </div>

@@ -5,7 +5,6 @@ export interface Testimonial {
   subject: string
   university: string
   year: string
-  rating: number
   avatarColor: string
   featured?: boolean
 }
@@ -13,47 +12,43 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "I'd been on my university's counselling waiting list for 6 weeks when I found Luma. I had my first session 2 days later. My therapist actually understood exam anxiety — she'd worked with students for 8 years. By session 4, I was functioning again. I genuinely don't know where I'd be without it.",
-    name: 'Amara K.',
-    initials: 'AK',
-    subject: 'Psychology',
-    university: "King's College London",
+      'I want support that does not make me wait until everything has fallen apart. By the time I ask for help, I usually need someone soon, not in six weeks.',
+    name: 'Student voice',
+    initials: 'SV',
+    subject: 'Waiting lists',
+    university: 'UK university',
     year: 'Year 3',
-    rating: 5,
     avatarColor: '#f47b66',
     featured: true,
   },
   {
     quote:
-      "The matching system is genuinely impressive. I got someone who specialised in exactly what I was dealing with — and the sessions were affordable enough that I didn't have to choose between therapy and food.",
-    name: 'James M.',
-    initials: 'JM',
-    subject: 'Engineering',
-    university: 'Manchester',
+      'I would feel more confident starting therapy if I knew the person understood student pressure, deadlines, money stress, and being away from home.',
+    name: 'Student voice',
+    initials: 'SV',
+    subject: 'Anxiety',
+    university: 'UK university',
     year: 'Year 2',
-    rating: 5,
     avatarColor: '#8baf8b',
   },
   {
     quote:
-      'I was sceptical that an online therapist could really help. After 3 sessions, my anxiety scores dropped by half. The progress tracking made it visible — that kept me going.',
-    name: 'Riya P.',
-    initials: 'RP',
-    subject: 'Law',
-    university: 'UCL',
+      'I do not need an app to fix everything. I need a clear first step, privacy, and a way to find someone who feels like the right fit.',
+    name: 'Student voice',
+    initials: 'SV',
+    subject: 'Privacy',
+    university: 'UK university',
     year: 'Year 1',
-    rating: 5,
     avatarColor: '#f9a08f',
   },
   {
     quote:
-      "The mood dashboard between sessions was something I didn't expect to love. It made me more self-aware. I started noticing patterns I'd never have noticed before.",
-    name: 'Tom L.',
-    initials: 'TL',
-    subject: 'History',
-    university: 'Edinburgh',
+      'The hardest part is explaining what is wrong when I am already overwhelmed. I want Luma to make that first conversation feel less intimidating.',
+    name: 'Student voice',
+    initials: 'SV',
+    subject: 'Burnout',
+    university: 'UK university',
     year: 'Year 2',
-    rating: 4,
     avatarColor: '#6a9a6a',
   },
 ]

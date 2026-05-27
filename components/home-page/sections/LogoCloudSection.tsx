@@ -42,7 +42,7 @@ const LOGOS = [
 
 export function LogoCloudSection() {
   return (
-    <Section className="bg-beige pt-8 pb-12 sm:pt-10 md:pt-14 md:pb-16 lg:pt-16">
+    <Section className="bg-white pt-8 pb-12 sm:pt-10 md:pt-14 md:pb-16 lg:pt-16">
       <p className="mb-8 text-center text-sm font-medium text-muted-text">Trusted by students at</p>
       <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8">
         {LOGOS.map((logo) => (

@@ -18,7 +18,7 @@ export const PLANS: Plan[] = [
     eyebrow: 'Starter',
     name: 'Pay as you go',
     tagline: 'No commitment. Try a session first.',
-    price: { session: '$32', monthly: '$32' },
+    price: { session: '£32', monthly: '£32' },
     priceNote: { session: 'per session', monthly: 'per session · no lock-in' },
     features: [
       '50-min video session',
@@ -33,7 +33,7 @@ export const PLANS: Plan[] = [
     eyebrow: 'Student Pro',
     name: 'Student Pro',
     tagline: 'Consistent support for real progress.',
-    price: { session: '$32', monthly: '£79' },
+    price: { session: '£32', monthly: '£79' },
     priceNote: { session: 'per session', monthly: 'per month · 4 sessions' },
     features: [
       '4 sessions per month',

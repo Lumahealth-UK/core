@@ -40,34 +40,33 @@ export function WhatYouGetSection() {
   return (
     <WaveSection
       id={SECTION_IDS.WHAT_YOU_GET}
-      className="bg-luma-espresso text-white"
-      topWave={{ front: 'white', back: 'var(--color-luma-mocha)' }}
-      bottomWave={{ front: 'white', back: 'var(--color-luma-mocha)' }}
+      className="bg-beige"
+      topWave={{ front: 'white', back: 'var(--color-luma-canvas)' }}
+      bottomWave={{ front: 'white', back: 'var(--color-luma-canvas)' }}
     >
       <SectionHeader
         eyebrow="What you will get"
         title={
           <>
             Therapy access that feels built around{' '}
-            <span className="text-luma-coral-light">student reality.</span>
+            <span className="text-luma-coral">student reality.</span>
           </>
         }
         description="Luma is not just a booking page. It is a calmer path from needing help to actually sitting with someone who understands student life."
         centered
-        className="[&_h2]:text-white [&_p]:text-white/60 [&>span]:bg-white/10 [&>span]:text-luma-coral-light"
       />
 
       <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {features.map(({ title, description, Icon }) => (
           <article
             key={title}
-            className="rounded-3xl border border-white/10 bg-luma-mocha p-6 shadow-[0_14px_42px_rgba(0,0,0,0.12)]"
+            className="rounded-3xl border border-luma-hairline bg-white p-6 shadow-[0_10px_28px_rgba(61,47,30,0.04)]"
           >
-            <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/8 text-luma-coral-light">
+            <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-luma-coral-tint text-luma-coral-deep">
               <Icon className="h-5 w-5" aria-hidden="true" />
             </div>
-            <h3 className="font-heading text-xl font-bold leading-tight text-white">{title}</h3>
-            <p className="mt-3 text-sm leading-7 text-white/62">{description}</p>
+            <h3 className="font-heading text-xl font-bold leading-tight text-luma-mocha">{title}</h3>
+            <p className="mt-3 text-sm leading-7 text-luma-mocha/70">{description}</p>
           </article>
         ))}
       </div>

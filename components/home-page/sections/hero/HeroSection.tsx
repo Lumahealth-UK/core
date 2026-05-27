@@ -20,7 +20,7 @@ export function HeroSection() {
     <Section
       id={SECTION_IDS.HERO}
       className="flex items-start bg-gradient-to-b from-white to-luma-canvas pt-20 pb-24 md:pt-24 md:pb-28 lg:pb-32"
-      containerClassName="max-w-[90rem] w-full"
+      containerClassName="max-w-screen-xl w-full"
     >
       <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-14 xl:gap-20">
         {/* Left: text content */}
@@ -28,7 +28,7 @@ export function HeroSection() {
           {/* Badge */}
           <Badge variant="outline" className="gap-2 sm:text-sm">
             <span className="text-luma-coral">✦</span>
-            Launching Spring 2026
+            Launching fall 2026
           </Badge>
 
           {/* Headline */}
@@ -42,7 +42,7 @@ export function HeroSection() {
 
           {/* Body */}
           <p className="max-w-md text-base text-muted-text md:text-lg xl:max-w-lg xl:text-xl">
-            BACP-accredited therapists matched to your exact needs. Sessions from $32. Built by
+            BACP-accredited therapists matched to your exact needs. Sessions from £32. Built by
             students, for students - across every UK university.
           </p>
 

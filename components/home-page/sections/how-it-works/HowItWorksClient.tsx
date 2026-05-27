@@ -1,7 +1,6 @@
 'use client'
 
 import { motion, useInView, useReducedMotion } from 'framer-motion'
-import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { cn } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'
@@ -76,16 +75,12 @@ function TimelineStep({ step, index, isActive, isCurrent }: TimelineStepProps) {
       >
         <div className="flex items-start justify-between gap-3">
           <Badge variant="label">{step.label}</Badge>
-          <span
-            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-luma-hairline bg-luma-canvas"
-            aria-hidden="true"
-          >
-            <Image src={step.icon} alt="" width={20} height={20} className="h-5 w-5 object-contain" />
-          </span>
         </div>
 
         <div className="mt-8 space-y-3">
-          <h3 className="font-heading text-4xl font-bold leading-[1.05] tracking-tight text-main-text">{step.title}</h3>
+          <h3 className="font-heading text-4xl font-bold leading-[1.05] tracking-tight text-main-text">
+            {step.title}
+          </h3>
           <p className="text-sm leading-relaxed text-muted-text">{step.description}</p>
         </div>
       </motion.article>
@@ -142,7 +137,8 @@ export function HowItWorksClient({ steps }: Props) {
           className="pointer-events-none absolute top-7 hidden h-[3px] -translate-y-1/2 rounded-full lg:block"
           style={{
             left: '12.5%',
-            background: 'linear-gradient(to right, var(--luma-coral-deep), var(--luma-coral), var(--luma-coral-light))',
+            background:
+              'linear-gradient(to right, var(--luma-coral-deep), var(--luma-coral), var(--luma-coral-light))',
             boxShadow: '0 1px 4px color-mix(in srgb, var(--luma-coral) 50%, transparent)',
           }}
           animate={{

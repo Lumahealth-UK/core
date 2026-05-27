@@ -71,7 +71,7 @@ function WaveSvg({
  * <WaveSection
  *   id={SECTION_IDS.THERAPISTS}
  *   className="bg-luma-espresso"
- *   containerClassName="max-w-[90rem] w-full"
+ *   containerClassName="max-w-screen-xl w-full"
  *   topWave={{ front: 'white', back: 'var(--color-luma-mocha)' }}
  *   bottomWave={{ front: 'var(--color-beige)', back: 'var(--color-luma-mocha)' }}
  * >
@@ -94,7 +94,7 @@ export function WaveSection({
       )}
 
       <section id={id} className={cn('scroll-mt-28 py-24 md:py-32', className)}>
-        <div className={cn('mx-auto max-w-6xl px-6', containerClassName)}>
+        <div className={cn('mx-auto max-w-screen-xl px-6', containerClassName)}>
           {children}
         </div>
       </section>

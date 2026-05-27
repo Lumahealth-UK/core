@@ -8,12 +8,12 @@ export function StudentStoriesSection() {
   return (
     <Section id={SECTION_IDS.STUDENT_STORIES} className="bg-white">
       <SectionHeader
-        eyebrow="Student stories"
+        eyebrow="Student voices"
         title={
           <>
-            Real students,{' '}
+            What students are{' '}
             <em className="block not-italic italic font-heading text-luma-coral">
-              real change.
+              hoping for.
             </em>
           </>
         }

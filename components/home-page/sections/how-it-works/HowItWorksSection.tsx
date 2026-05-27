@@ -9,7 +9,7 @@ export function HowItWorksSection() {
     <Section
       id={SECTION_IDS.HOW_IT_WORKS}
       className="bg-white"
-      containerClassName="max-w-[88rem] px-6"
+      containerClassName="max-w-screen-xl px-6"
     >
       <SectionHeader
         eyebrow="How It Works"
