@@ -1,4 +1,5 @@
 import { CalendarDays, CircleDollarSign, ShieldCheck, Sparkles } from 'lucide-react'
+import { WaitlistRoleDialog } from '@/components/home-page/WaitlistRoleDialog'
 import { Section } from '@/components/primitives/Section'
 import { SECTION_IDS } from '@/lib/constants/routes'
 
@@ -48,12 +49,12 @@ export function ForTherapistsSection() {
             </p>
           </div>
 
-          <a
-            href="mailto:hello@lumahealth.co.uk?subject=Therapist%20Partnership"
-            className="inline-flex items-center gap-2 rounded-full bg-luma-sage px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-luma-sage-deep"
-          >
-            Partner with Luma <span aria-hidden="true">→</span>
-          </a>
+          <WaitlistRoleDialog
+            triggerLabel="Partner with Luma"
+            triggerSize="lg"
+            triggerClassName="bg-luma-sage hover:bg-luma-sage-deep"
+            initialRole="therapist"
+          />
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2">

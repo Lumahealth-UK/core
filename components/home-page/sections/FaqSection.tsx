@@ -58,10 +58,10 @@ export function FaqSection() {
           <p className="max-w-md text-base leading-relaxed text-luma-mocha/70">
             Still unsure? Email{' '}
             <a
-              href="mailto:hello@lumahealth.co.uk"
+              href="mailto:lumahealthuk@gmail.com"
               className="font-semibold text-luma-coral-deep transition-colors hover:text-luma-coral"
             >
-              hello@lumahealth.co.uk
+              lumahealthuk@gmail.com
             </a>{' '}
             and we&apos;ll get back to you.
           </p>
