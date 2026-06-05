@@ -183,7 +183,12 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full px-4 pt-5 pb-4 sm:px-6">
-      <div className="mx-auto flex max-w-6xl flex-col gap-3 rounded-[999px] border border-luma-hairline bg-background/70 px-4 py-3.5 shadow-sm backdrop-blur-2xl sm:px-6 sm:py-4">
+      <div
+        className={cn(
+          'mx-auto flex max-w-6xl flex-col gap-3 border border-luma-hairline bg-background/70 px-4 py-3.5 shadow-sm backdrop-blur-2xl transition-[border-radius] sm:px-6 sm:py-4',
+          mobileOpen ? 'rounded-[1.75rem]' : 'rounded-[999px]'
+        )}
+      >
         <div className="flex items-center justify-between gap-3">
           <Link
             href="/"
