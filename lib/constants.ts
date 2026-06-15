@@ -1,3 +1,54 @@
+// Section anchors on the single-page homepage (e.g. /#pricing).
+
+export const LANDING_PAGE = '/' as const
+
+export const SECTION_IDS = {
+  HERO: 'hero',
+  WHO_ITS_FOR: 'who-its-for',
+  HOW_IT_WORKS: 'how-it-works',
+  WHAT_YOU_GET: 'what-you-get',
+  TRUST_SAFETY: 'trust-safety',
+  STUDENT_STORIES: 'student-stories',
+  OUR_STORY: 'our-story',
+  EVIDENCE: 'evidence',
+  PRICING: 'pricing',
+  THERAPISTS: 'therapists',
+  FOUNDERS: 'founders',
+  FAQ: 'faq',
+  BLOG: 'blog',
+  CONTACT: 'contact',
+  FOR_THERAPISTS: 'for-therapists',
+} as const
+
+export type SectionId = (typeof SECTION_IDS)[keyof typeof SECTION_IDS]
+
+/** Anchor href for a section, e.g. '/#pricing' */
+export function sectionHref(id: SectionId): string {
+  return `${LANDING_PAGE}#${id}`
+}
+
+export const SITE_NAME = 'Luma Health UK'
+export const SITE_DESCRIPTION =
+  'Connecting students and young adults with vetted therapists — faster, simpler, more human.'
+export const SITE_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://lumahealth.co.uk'
+export const DEFAULT_SITE_URL = 'https://www.lumahealthuk.com'
+export const SUPPORT_EMAIL = 'support@lumahealthuk.com'
+export const HELLO_EMAIL = 'hello@lumahealthuk.com'
+
+export const NAV_LINKS = [
+  { label: 'How it works', href: sectionHref(SECTION_IDS.HOW_IT_WORKS) },
+  { label: 'Therapists', href: sectionHref(SECTION_IDS.THERAPISTS) },
+  // { label: 'Pricing', href: sectionHref(SECTION_IDS.PRICING) },
+  { label: 'Our story', href: sectionHref(SECTION_IDS.OUR_STORY) },
+  { label: 'FAQ', href: sectionHref(SECTION_IDS.FAQ) },
+  { label: 'Blog', href: sectionHref(SECTION_IDS.BLOG) },
+  {
+    label: 'For Therapists',
+    href: sectionHref(SECTION_IDS.FOR_THERAPISTS),
+    variant: 'sage' as const,
+  },
+] as const
+
 export const WAITLIST_USER_TYPES = ['student', 'therapist'] as const
 
 export type WaitlistUserType = (typeof WAITLIST_USER_TYPES)[number]
@@ -132,9 +183,9 @@ export const UK_UNIVERSITIES = [
 ] as const
 
 export const HOW_HEARD_OPTIONS = [
-  { value: 'tik_tok', label: 'Tik tok' },
+  { value: 'tiktok', label: 'TikTok' },
   { value: 'instagram', label: 'Instagram' },
-  { value: 'linked_in', label: 'Linked in' },
+  { value: 'linkedin', label: 'LinkedIn' },
   { value: 'word_of_mouth', label: 'Word of mouth' },
   { value: 'blog', label: 'Blog' },
   { value: 'google_search', label: 'Google search' },
@@ -155,3 +206,22 @@ export const ACCREDITATION_BODIES = [
 export const HOW_HEARD_VALUES = HOW_HEARD_OPTIONS.map((option) => option.value)
 
 export const ACCREDITATION_BODY_VALUES = ACCREDITATION_BODIES.map((option) => option.value)
+
+export const BREVO_SEND_EMAIL_URL = 'https://api.brevo.com/v3/smtp/email'
+
+export const WAITLIST_EMAIL_CONFIG = {
+  student: {
+    subject: "You're on the Luma student waitlist",
+    templateDir: 'student',
+  },
+  therapist: {
+    subject: "You're on the Luma therapist waitlist",
+    templateDir: 'therapist',
+  },
+} satisfies Record<
+  WaitlistUserType,
+  {
+    subject: string
+    templateDir: string
+  }
+>

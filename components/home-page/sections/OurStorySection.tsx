@@ -1,6 +1,6 @@
 import { Globe, HeartHandshake, ShieldCheck, Sprout } from 'lucide-react'
 import { Section } from '@/components/primitives/Section'
-import { SECTION_IDS } from '@/lib/constants/routes'
+import { SECTION_IDS } from '@/lib/constants'
 
 const values = [
   {
@@ -54,8 +54,8 @@ export function OurStorySection() {
           </div>
 
           <p className="text-base leading-relaxed text-luma-mocha/70">
-            Between deadlines, financial pressure, and feeling isolated, the last thing you need
-            is a long waitlist or a price that rules support out before you even begin.
+            Between deadlines, financial pressure, and feeling isolated, the last thing you need is
+            a long waitlist or a price that rules support out before you even begin.
           </p>
 
           <p className="text-base leading-relaxed text-luma-mocha/70">

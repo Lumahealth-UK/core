@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Section } from '@/components/primitives/Section'
-import { sectionHref, SECTION_IDS } from '@/lib/constants/routes'
+import { sectionHref, SECTION_IDS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'
 import { Button, buttonVariants } from '@/components/ui/button'

@@ -1,6 +1,6 @@
 import { Section } from '@/components/primitives/Section'
 import { SectionHeader } from '@/components/primitives/SectionHeader'
-import { SECTION_IDS } from '@/lib/constants/routes'
+import { SECTION_IDS } from '@/lib/constants'
 import { testimonials } from './student-stories-data'
 import { StudentStoriesClient } from './StudentStoriesClient'
 
@@ -12,9 +12,7 @@ export function StudentStoriesSection() {
         title={
           <>
             What students are{' '}
-            <em className="block not-italic italic font-heading text-luma-coral">
-              hoping for.
-            </em>
+            <em className="block not-italic italic font-heading text-luma-coral">hoping for.</em>
           </>
         }
         centered

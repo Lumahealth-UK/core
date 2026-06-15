@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { WaitlistRoleDialog } from '@/components/home-page/WaitlistRoleDialog'
-import { NAV_LINKS } from '@/lib/constants/site'
+import { NAV_LINKS } from '@/lib/constants'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 

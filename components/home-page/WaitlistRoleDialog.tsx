@@ -19,7 +19,7 @@ import {
   HOW_HEARD_OPTIONS,
   UK_UNIVERSITIES,
   type WaitlistUserType,
-} from '@/lib/waitlist-options'
+} from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
 interface WaitlistRoleDialogProps {
@@ -126,16 +126,17 @@ export function WaitlistRoleDialog({
 
           <div className="mt-6 grid grid-cols-2 rounded-full bg-white p-1 shadow-[0_8px_24px_rgba(61,47,30,0.05)]">
             {(['student', 'therapist'] as const).map((item) => (
-              <button
+              <Button
                 key={item}
                 type="button"
+                variant="ghost"
                 onClick={() => {
                   setRole(item)
                   setStatus('idle')
                   setMessage('')
                 }}
                 className={cn(
-                  'h-10 rounded-full text-sm font-semibold capitalize transition-colors',
+                  'h-10 rounded-full bg-transparent text-sm font-semibold capitalize shadow-none transition-colors hover:bg-transparent',
                   role === item
                     ? item === 'student'
                       ? 'bg-luma-coral text-white'
@@ -145,7 +146,7 @@ export function WaitlistRoleDialog({
                 aria-pressed={role === item}
               >
                 {item}
-              </button>
+              </Button>
             ))}
           </div>
         </div>
@@ -308,12 +309,13 @@ function PolicyDialog({
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button
+        <Button
           type="button"
-          className="font-semibold text-luma-coral-deep underline underline-offset-2 transition-colors hover:text-luma-coral"
+          variant="link"
+          className="inline h-auto p-0 align-baseline font-semibold text-luma-coral-deep underline underline-offset-2 hover:text-luma-coral"
         >
           {title}
-        </button>
+        </Button>
       </DialogTrigger>
 
       <DialogContent className="max-h-[92vh] max-w-4xl overflow-y-auto rounded-[1.5rem] border-luma-hairline bg-background p-0 shadow-popup sm:rounded-[1.75rem]">
@@ -488,9 +490,10 @@ function SearchableSelect({
           className="absolute left-0 right-0 top-[calc(100%+0.35rem)] z-50 max-h-64 overflow-y-auto rounded-xl border border-luma-hairline bg-white p-1 shadow-popup"
         >
           {filteredOptions.map((option) => (
-            <button
+            <Button
               key={option}
               type="button"
+              variant="ghost"
               role="option"
               aria-selected={option === value}
               onMouseDown={(event) => event.preventDefault()}
@@ -499,10 +502,10 @@ function SearchableSelect({
                 onChange(option)
                 setOpen(false)
               }}
-              className="block w-full rounded-lg px-3 py-2 text-left text-sm text-luma-mocha transition-colors hover:bg-luma-canvas"
+              className="h-auto w-full justify-start rounded-lg bg-transparent px-3 py-2 text-left text-sm font-normal text-luma-mocha shadow-none transition-colors hover:bg-luma-canvas hover:text-luma-mocha"
             >
               {option}
-            </button>
+            </Button>
           ))}
         </div>
       )}

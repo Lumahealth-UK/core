@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { SECTION_IDS, sectionHref } from '@/lib/constants/routes'
+import { SECTION_IDS, sectionHref } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 import { type BillingMode, type Plan, PLANS } from './pricing-data'
 
@@ -21,20 +21,22 @@ function BillingToggle({
       <div
         className={cn(
           'absolute inset-y-1 w-1/2 rounded-full bg-luma-coral transition-transform duration-200 ease-out',
-          mode === 'monthly' && 'translate-x-full',
+          mode === 'monthly' && 'translate-x-full'
         )}
       />
       {(['session', 'monthly'] as const).map((m) => (
-        <button
+        <Button
           key={m}
+          type="button"
+          variant="ghost"
           onClick={() => onChange(m)}
           className={cn(
-            'relative z-10 flex-1 px-6 py-2.5 text-sm font-medium transition-colors duration-150',
-            mode === m ? 'text-white' : 'text-white/35',
+            'relative z-10 h-auto flex-1 rounded-full bg-transparent px-6 py-2.5 text-sm font-medium shadow-none transition-colors duration-150 hover:bg-transparent',
+            mode === m ? 'text-white hover:text-white' : 'text-white/35 hover:text-white'
           )}
         >
           {m === 'session' ? 'Pay per session' : 'Monthly plan'}
-        </button>
+        </Button>
       ))}
     </div>
   )
@@ -81,7 +83,7 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
         'flex flex-col rounded-2xl p-7',
         featured
           ? 'bg-white shadow-popup md:scale-[1.04] md:z-10'
-          : 'border border-white/8 bg-luma-wood-mid',
+          : 'border border-white/8 bg-luma-wood-mid'
       )}
     >
       {/* Badge row — reserved height keeps card headers vertically aligned */}
@@ -100,12 +102,17 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
       <h3
         className={cn(
           'mt-1 font-heading text-2xl font-bold',
-          featured ? 'text-main-text' : 'text-white',
+          featured ? 'text-main-text' : 'text-white'
         )}
       >
         {plan.name}
       </h3>
-      <p className={cn('mt-1.5 text-sm leading-snug', featured ? 'text-muted-text' : 'text-white/50')}>
+      <p
+        className={cn(
+          'mt-1.5 text-sm leading-snug',
+          featured ? 'text-muted-text' : 'text-white/50'
+        )}
+      >
         {plan.tagline}
       </p>
 
@@ -114,7 +121,7 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
         <p
           className={cn(
             'font-heading text-5xl font-bold leading-none',
-            featured ? 'text-main-text' : 'text-white',
+            featured ? 'text-main-text' : 'text-white'
           )}
         >
           {plan.price[mode]}
@@ -138,7 +145,7 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
         size="md"
         className={cn(
           'mt-8 w-full',
-          !featured && 'bg-white/10 text-white shadow-none hover:bg-white/20',
+          !featured && 'bg-white/10 text-white shadow-none hover:bg-white/20'
         )}
       >
         <a href={sectionHref(SECTION_IDS.CONTACT)}>{plan.cta}</a>
@@ -162,9 +169,7 @@ export function PricingClient() {
         ))}
       </div>
 
-      <p className="mt-10 text-center text-xs text-white/30">
-        No hidden fees. Cancel anytime.
-      </p>
+      <p className="mt-10 text-center text-xs text-white/30">No hidden fees. Cancel anytime.</p>
     </div>
   )
 }

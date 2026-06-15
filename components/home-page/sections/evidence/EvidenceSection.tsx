@@ -1,14 +1,12 @@
 import { WaveSection } from '@/components/primitives/WaveSection'
-import { SECTION_IDS, sectionHref } from '@/lib/constants/routes'
+import { SECTION_IDS, sectionHref } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 import { type ComparisonRow, COMPARISON_ROWS } from './evidence-data'
 
 function PrimaryStat() {
   return (
     <div className="flex items-center gap-6 rounded-2xl border border-luma-hairline bg-white p-7 shadow-[0_10px_30px_rgba(61,47,30,0.06)]">
-      <p className="shrink-0 font-heading text-6xl font-bold leading-none text-luma-coral">
-        17.9%
-      </p>
+      <p className="shrink-0 font-heading text-6xl font-bold leading-none text-luma-coral">17.9%</p>
       <div className="h-12 w-px shrink-0 bg-luma-hairline" aria-hidden="true" />
       <p className="text-sm leading-snug text-luma-mocha/75">
         of UK undergraduates reported a mental health challenge in 2024
@@ -31,7 +29,7 @@ function SecondaryStat({
       <p
         className={cn(
           'font-heading text-4xl font-bold leading-none',
-          dimmed ? 'text-luma-coral-light' : 'text-luma-coral-deep',
+          dimmed ? 'text-luma-coral-light' : 'text-luma-coral-deep'
         )}
       >
         {value}
@@ -68,13 +66,13 @@ function ComparisonTable({ rows }: { rows: ComparisonRow[] }) {
               'grid grid-cols-3 items-center border-b border-luma-hairline px-5 py-3.5 last:border-b-0',
               row.isLuma
                 ? 'border-l-[3px] border-l-luma-coral bg-luma-coral-tint/60'
-                : 'border-l-[3px] border-l-transparent',
+                : 'border-l-[3px] border-l-transparent'
             )}
           >
             <span
               className={cn(
                 'text-sm font-semibold',
-                row.isLuma ? 'text-luma-coral-deep' : 'text-luma-mocha',
+                row.isLuma ? 'text-luma-coral-deep' : 'text-luma-mocha'
               )}
             >
               {row.service}
@@ -82,7 +80,7 @@ function ComparisonTable({ rows }: { rows: ComparisonRow[] }) {
             <span
               className={cn(
                 'text-sm text-center',
-                row.isLuma ? 'font-bold text-luma-coral-deep' : 'text-luma-mocha/60',
+                row.isLuma ? 'font-bold text-luma-coral-deep' : 'text-luma-mocha/60'
               )}
             >
               {row.cost}
@@ -90,7 +88,7 @@ function ComparisonTable({ rows }: { rows: ComparisonRow[] }) {
             <span
               className={cn(
                 'text-sm text-right',
-                row.isLuma ? 'font-semibold text-luma-coral-deep' : 'text-luma-mocha/60',
+                row.isLuma ? 'font-semibold text-luma-coral-deep' : 'text-luma-mocha/60'
               )}
             >
               {row.wait}
@@ -125,15 +123,14 @@ export function EvidenceSection() {
           </p>
 
           <h2 className="font-heading text-4xl font-bold leading-tight text-luma-mocha md:text-5xl">
-            This isn&rsquo;t just{' '}
-            <em className="not-italic text-luma-coral">good to have.</em>
+            This isn&rsquo;t just <em className="not-italic text-luma-coral">good to have.</em>
             <br />
             It&rsquo;s urgent.
           </h2>
 
           <p className="text-base leading-relaxed text-luma-mocha/75">
-            UK undergraduate mental health difficulties have nearly tripled since 2017.
-            Luma is being built for faster, affordable access to student-aware support.
+            UK undergraduate mental health difficulties have nearly tripled since 2017. Luma is
+            being built for faster, affordable access to student-aware support.
           </p>
 
           <div>
@@ -144,7 +141,7 @@ export function EvidenceSection() {
                 'bg-luma-coral text-sm font-semibold text-white',
                 'shadow-[0_4px_20px_rgba(244,123,102,0.30)]',
                 'transition-all duration-200',
-                'hover:bg-luma-coral-deep hover:shadow-[0_8px_30px_rgba(244,123,102,0.38)]',
+                'hover:bg-luma-coral-deep hover:shadow-[0_8px_30px_rgba(244,123,102,0.38)]'
               )}
             >
               I&rsquo;m ready to start <span aria-hidden="true">→</span>

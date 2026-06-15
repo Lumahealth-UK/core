@@ -5,8 +5,7 @@
  */
 import Link from 'next/link'
 import { Instagram, Linkedin, Music } from 'lucide-react'
-import { SITE_NAME } from '@/lib/constants/site'
-import { SECTION_IDS, sectionHref } from '@/lib/constants/routes'
+import { SECTION_IDS, SITE_NAME, sectionHref } from '@/lib/constants'
 import { Section } from '@/components/primitives/Section'
 
 type SocialIconKey = 'Instagram' | 'LinkedIn' | 'TikTok'
@@ -50,10 +49,7 @@ export function Footer() {
         className="absolute left-0 top-0 h-16 w-full text-white"
         aria-hidden="true"
       >
-        <path
-          d="M0,0 L1440,0 L1440,42 C1080,72 360,18 0,52 Z"
-          fill="currentColor"
-        />
+        <path d="M0,0 L1440,0 L1440,42 C1080,72 360,18 0,52 Z" fill="currentColor" />
       </svg>
 
       <Section className="relative pb-16 pt-24 md:pb-20 md:pt-28 lg:pb-24 lg:pt-32">
@@ -75,7 +71,8 @@ export function Footer() {
               Luma Health
             </h3>
             <p className="text-sm md:text-base text-luma-mocha/65 leading-relaxed max-w-xs">
-              Supporting mental wellbeing for UK university students with accessible, professional therapy services.
+              Supporting mental wellbeing for UK university students with accessible, professional
+              therapy services.
             </p>
           </div>
 
@@ -113,7 +110,7 @@ export function Footer() {
                 </Link>
               ))}
             </nav>
-            
+
             {/* Contact Information */}
             <div className="space-y-2">
               <h4 className="font-heading text-sm font-semibold text-luma-mocha uppercase tracking-wider mb-4">
@@ -153,9 +150,7 @@ export function Footer() {
               <h4 className="font-heading text-sm font-semibold text-luma-mocha mb-2">
                 Emergency Support
               </h4>
-              <p className="text-xs md:text-sm text-luma-mocha/65 mb-3">
-                If you need urgent help:
-              </p>
+              <p className="text-xs md:text-sm text-luma-mocha/65 mb-3">If you need urgent help:</p>
               <div className="space-y-2 text-xs md:text-sm">
                 <p className="text-luma-mocha/75">
                   <span className="font-semibold">999</span> – Emergency services

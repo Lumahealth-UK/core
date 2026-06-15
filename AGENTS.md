@@ -1,0 +1,9 @@
+- Use TypeScript, Next.js App Router, Tailwind, shadcn/ui, and Supabase conventions already in the project.
+- Prefer Server Components by default; use Client Components only when needed.
+- Before building new UI, check shadcn/ui first. If a component exists, install/use it instead of reinventing it.
+- Keep shadcn components in `components/ui/` and compose them for custom UI.
+- Use `cn()` for conditional class names.
+- Do not add new libraries unless necessary.
+- Never expose Supabase service role keys in client code.
+- Use migrations for database schema changes.
+- Run lint/build before finishing when possible.

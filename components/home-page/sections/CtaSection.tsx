@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { WaitlistRoleDialog } from '@/components/home-page/WaitlistRoleDialog'
 import { WaveSection } from '@/components/primitives/WaveSection'
-import { SECTION_IDS, sectionHref } from '@/lib/constants/routes'
+import { SECTION_IDS, sectionHref } from '@/lib/constants'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
@@ -24,8 +24,8 @@ export function CtaSection() {
         </h2>
 
         <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-luma-mocha/70 md:text-lg">
-          Tell us you&rsquo;re interested and be first to access Luma when we launch. Students on the
-          list will get priority access to the platform.
+          Tell us you&rsquo;re interested and be first to access Luma when we launch. Students on
+          the list will get priority access to the platform.
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-4">

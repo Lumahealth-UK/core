@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { sendWaitlistEmail } from '@/lib/email/waitlist-email'
 import { createClient } from '@/lib/supabase/server'
 import {
   ACCREDITATION_BODY_VALUES,
@@ -6,7 +7,7 @@ import {
   UK_UNIVERSITIES,
   WAITLIST_USER_TYPES,
   type WaitlistUserType,
-} from '@/lib/waitlist-options'
+} from '@/lib/constants'
 
 interface WaitlistPayload {
   userType?: unknown
@@ -108,6 +109,16 @@ export async function POST(request: Request) {
       },
       { status: duplicate ? 409 : 500 }
     )
+  }
+
+  try {
+    await sendWaitlistEmail({
+      userType,
+      name,
+      email,
+    })
+  } catch (emailError) {
+    console.error('Waitlist email failed', emailError)
   }
 
   return NextResponse.json({ ok: true })

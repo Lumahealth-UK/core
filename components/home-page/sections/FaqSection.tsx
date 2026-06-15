@@ -3,7 +3,8 @@
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { Section } from '@/components/primitives/Section'
-import { SECTION_IDS } from '@/lib/constants/routes'
+import { Button } from '@/components/ui/button'
+import { SECTION_IDS, SUPPORT_EMAIL } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
 const faqItems = [
@@ -58,10 +59,10 @@ export function FaqSection() {
           <p className="max-w-md text-base leading-relaxed text-luma-mocha/70">
             Still unsure? Email{' '}
             <a
-              href="mailto:lumahealthuk@gmail.com"
+              href={`mailto:${SUPPORT_EMAIL}`}
               className="font-semibold text-luma-coral-deep transition-colors hover:text-luma-coral"
             >
-              lumahealthuk@gmail.com
+              {SUPPORT_EMAIL}
             </a>{' '}
             and we&apos;ll get back to you.
           </p>
@@ -79,11 +80,12 @@ export function FaqSection() {
                   isOpen ? 'border-luma-coral/25' : 'border-luma-hairline'
                 )}
               >
-                <button
+                <Button
                   type="button"
+                  variant="ghost"
                   onClick={() => setOpenIndex(isOpen ? -1 : index)}
                   className={cn(
-                    'flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors',
+                    'h-auto w-full justify-between gap-4 rounded-none bg-transparent px-6 py-5 text-left shadow-none transition-colors hover:bg-beige/60 hover:text-luma-mocha',
                     isOpen ? 'bg-luma-coral-tint/70 text-luma-coral-deep' : 'hover:bg-beige/60'
                   )}
                   aria-expanded={isOpen}
@@ -103,7 +105,7 @@ export function FaqSection() {
                     )}
                     aria-hidden="true"
                   />
-                </button>
+                </Button>
 
                 <div
                   className={cn(

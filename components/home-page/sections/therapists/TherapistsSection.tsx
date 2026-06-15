@@ -1,13 +1,15 @@
 import Image from 'next/image'
 import { Section } from '@/components/primitives/Section'
-import { SECTION_IDS } from '@/lib/constants/routes'
+import { SECTION_IDS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 import { type Therapist, THERAPISTS, TRUST_SIGNALS } from './therapists-data'
 
 function StarRating({ rating }: { rating: number }) {
   return (
     <div className="flex items-center gap-1.5">
-      <span className="text-luma-coral" aria-hidden="true">★</span>
+      <span className="text-luma-coral" aria-hidden="true">
+        ★
+      </span>
       <span className="text-sm font-semibold text-white">{rating}</span>
     </div>
   )
@@ -43,10 +45,7 @@ function TherapistCard({ therapist }: { therapist: Therapist }) {
 
       <div className="mt-4 flex flex-wrap gap-1.5">
         {therapist.specialties.map((s) => (
-          <span
-            key={s}
-            className="rounded-full bg-white/5 px-3 py-1 text-[11px] text-white/55"
-          >
+          <span key={s} className="rounded-full bg-white/5 px-3 py-1 text-[11px] text-white/55">
             {s}
           </span>
         ))}
@@ -73,7 +72,8 @@ export function TherapistsSection() {
             Our therapists
           </p>
           <h2 className="font-heading text-4xl font-bold leading-tight text-luma-mocha md:text-5xl">
-            Every therapist <span className="italic text-luma-coral">vetted,</span> accredited, student-aware.
+            Every therapist <span className="italic text-luma-coral">vetted,</span> accredited,
+            student-aware.
           </h2>
           <p className="text-base leading-relaxed text-luma-mocha/65">
             All Luma therapists are BACP or UKCP accredited with specific experience working with

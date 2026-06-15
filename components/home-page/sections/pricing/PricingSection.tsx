@@ -1,6 +1,6 @@
 import { WaveSection } from '@/components/primitives/WaveSection'
 import { SectionHeader } from '@/components/primitives/SectionHeader'
-import { SECTION_IDS } from '@/lib/constants/routes'
+import { SECTION_IDS } from '@/lib/constants'
 import { PricingClient } from './PricingClient'
 
 export function PricingSection() {
@@ -15,8 +15,7 @@ export function PricingSection() {
         eyebrow="Pricing"
         title={
           <>
-            Less than a{' '}
-            <em className="not-italic text-luma-coral">night out.</em>
+            Less than a <em className="not-italic text-luma-coral">night out.</em>
             <br />
             More than you&rsquo;d expect.
           </>

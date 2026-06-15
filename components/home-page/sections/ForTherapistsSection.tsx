@@ -1,7 +1,7 @@
 import { CalendarDays, CircleDollarSign, ShieldCheck, Sparkles } from 'lucide-react'
 import { WaitlistRoleDialog } from '@/components/home-page/WaitlistRoleDialog'
 import { Section } from '@/components/primitives/Section'
-import { SECTION_IDS } from '@/lib/constants/routes'
+import { SECTION_IDS } from '@/lib/constants'
 
 const perks = [
   {

@@ -1,27 +1,31 @@
 import { EyeOff, HeartPulse, LockKeyhole, ShieldCheck } from 'lucide-react'
 import { WaveSection } from '@/components/primitives/WaveSection'
 import { SectionHeader } from '@/components/primitives/SectionHeader'
-import { SECTION_IDS } from '@/lib/constants/routes'
+import { SECTION_IDS } from '@/lib/constants'
 
 const safeguards = [
   {
     title: 'Accredited therapists',
-    description: 'Luma is designed around qualified, accredited professionals, not unverified advice.',
+    description:
+      'Luma is designed around qualified, accredited professionals, not unverified advice.',
     Icon: ShieldCheck,
   },
   {
     title: 'Private from your university',
-    description: 'Your university should not see your sessions, notes, or what you choose to share.',
+    description:
+      'Your university should not see your sessions, notes, or what you choose to share.',
     Icon: EyeOff,
   },
   {
     title: 'Secure by design',
-    description: 'Privacy, consent, and careful handling of personal information are product requirements.',
+    description:
+      'Privacy, consent, and careful handling of personal information are product requirements.',
     Icon: LockKeyhole,
   },
   {
     title: 'Clear crisis boundaries',
-    description: 'Luma is not a crisis service, so urgent support routes stay visible and easy to find.',
+    description:
+      'Luma is not a crisis service, so urgent support routes stay visible and easy to find.',
     Icon: HeartPulse,
   },
 ] as const
@@ -49,14 +53,13 @@ export function TrustSafetySection() {
 
         <div className="grid gap-4 sm:grid-cols-2">
           {safeguards.map(({ title, description, Icon }) => (
-            <article
-              key={title}
-              className="rounded-3xl border border-luma-hairline bg-white p-6"
-            >
+            <article key={title} className="rounded-3xl border border-luma-hairline bg-white p-6">
               <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-luma-sage-soft text-luma-sage-deep">
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </div>
-              <h3 className="font-heading text-xl font-bold leading-tight text-luma-mocha">{title}</h3>
+              <h3 className="font-heading text-xl font-bold leading-tight text-luma-mocha">
+                {title}
+              </h3>
               <p className="mt-3 text-sm leading-7 text-luma-mocha/70">{description}</p>
             </article>
           ))}

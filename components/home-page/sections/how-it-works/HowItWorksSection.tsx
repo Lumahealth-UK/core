@@ -1,6 +1,6 @@
 import { Section } from '@/components/primitives/Section'
 import { SectionHeader } from '@/components/primitives/SectionHeader'
-import { SECTION_IDS } from '@/lib/constants/routes'
+import { SECTION_IDS } from '@/lib/constants'
 import { howItWorksSteps } from './how-it-works-data'
 import { HowItWorksClient } from './HowItWorksClient'
 
@@ -15,9 +15,7 @@ export function HowItWorksSection() {
         eyebrow="How It Works"
         title={
           <>
-            From sign-up to{' '}
-            <em className="text-luma-coral">first session</em>
-            {' '}in under 48 hours.
+            From sign-up to <em className="text-luma-coral">first session</em> in under 48 hours.
           </>
         }
         description="We removed every obstacle that usually stops students from getting help. No GP referral. No waiting list. No judgement."

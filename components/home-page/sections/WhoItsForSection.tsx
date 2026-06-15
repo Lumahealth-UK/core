@@ -1,7 +1,7 @@
 import { BookOpen, Brain, Heart, Home, Sparkles, Users } from 'lucide-react'
 import { WaveSection } from '@/components/primitives/WaveSection'
 import { SectionHeader } from '@/components/primitives/SectionHeader'
-import { SECTION_IDS } from '@/lib/constants/routes'
+import { SECTION_IDS } from '@/lib/constants'
 
 const situations = [
   {
@@ -31,7 +31,8 @@ const situations = [
   },
   {
     title: 'Burnout',
-    description: 'When you are still functioning, but everything is taking more effort than it should.',
+    description:
+      'When you are still functioning, but everything is taking more effort than it should.',
     Icon: Sparkles,
   },
 ] as const
@@ -65,7 +66,9 @@ export function WhoItsForSection() {
             <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-luma-coral-tint text-luma-coral-deep">
               <Icon className="h-5 w-5" aria-hidden="true" />
             </div>
-            <h3 className="font-heading text-xl font-bold leading-tight text-luma-mocha">{title}</h3>
+            <h3 className="font-heading text-xl font-bold leading-tight text-luma-mocha">
+              {title}
+            </h3>
             <p className="mt-3 text-sm leading-7 text-luma-mocha/70">{description}</p>
           </article>
         ))}

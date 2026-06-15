@@ -80,8 +80,7 @@ components/
   providers/Providers.tsx   ← ThemeProvider + Sonner
   ui/                       ← primitive UI components (Button, Input, Label)
 lib/
-  constants/routes.ts       ← MARKETING_PATH, SECTION_IDS, sectionHref()
-  constants/site.ts         ← SITE_NAME, SITE_URL, NAV_LINKS
+  constants.ts              ← site, route, nav, waitlist, and email constants
   supabase/
     client.ts               ← browser client
     server.ts               ← server client (cookies)
