@@ -136,12 +136,12 @@ export function WaitlistRoleDialog({
                   setMessage('')
                 }}
                 className={cn(
-                  'h-10 rounded-full bg-transparent text-sm font-semibold capitalize shadow-none transition-colors hover:bg-transparent',
+                  'h-10 rounded-full text-sm font-semibold capitalize shadow-none transition-colors',
                   role === item
                     ? item === 'student'
-                      ? 'bg-luma-coral text-white'
-                      : 'bg-luma-sage text-white'
-                    : 'text-luma-mocha/60 hover:text-luma-mocha'
+                      ? 'bg-luma-coral text-white hover:bg-luma-coral hover:text-white'
+                      : 'bg-luma-sage text-white hover:bg-luma-sage hover:text-white'
+                    : 'bg-transparent text-luma-mocha/60 hover:bg-transparent hover:text-luma-mocha'
                 )}
                 aria-pressed={role === item}
               >
