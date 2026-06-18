@@ -99,7 +99,11 @@ export function WaitlistRoleDialog({
     }
 
     setStatus('success')
-    setMessage("You're on the list. We'll be in touch soon.")
+    setMessage(
+      student
+        ? "Check your inbox - we've got a little surprise waiting for you."
+        : "You're on the list. We'll be in touch soon."
+    )
     setForm(emptyForm)
     setTermsAccepted(false)
     onRoleSelect?.()
@@ -158,7 +162,9 @@ export function WaitlistRoleDialog({
                 <Check className="h-5 w-5" aria-hidden="true" />
               </div>
               <div>
-                <h3 className="font-heading text-xl font-bold text-luma-mocha">You&apos;re in.</h3>
+                <h3 className="font-heading text-xl font-bold text-luma-mocha">
+                  {student ? "You're on the list. 🎉" : "You're in."}
+                </h3>
                 <p className="mt-1 text-sm leading-6 text-luma-mocha/70">{message}</p>
               </div>
             </div>
