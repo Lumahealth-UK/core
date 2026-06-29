@@ -28,6 +28,8 @@ interface WaitlistRoleDialogProps {
   triggerSize?: 'sm' | 'md' | 'lg'
   initialRole?: WaitlistUserType
   onRoleSelect?: () => void
+  defaultOpen?: boolean
+  showTrigger?: boolean
 }
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
@@ -46,13 +48,16 @@ export function WaitlistRoleDialog({
   triggerSize = 'md',
   initialRole = 'student',
   onRoleSelect,
+  defaultOpen = false,
+  showTrigger = true,
 }: WaitlistRoleDialogProps) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(defaultOpen)
   const [role, setRole] = useState<WaitlistUserType>(initialRole)
   const [form, setForm] = useState(emptyForm)
   const [termsAccepted, setTermsAccepted] = useState(false)
   const [status, setStatus] = useState<Status>('idle')
   const [message, setMessage] = useState('')
+  const [referralCode, setReferralCode] = useState('')
   const fieldId = useId()
 
   useEffect(() => {
@@ -64,11 +69,31 @@ export function WaitlistRoleDialog({
     setTermsAccepted(false)
   }, [initialRole, open])
 
+  useEffect(() => {
+    const storageKey = 'luma_waitlist_referral_code'
+    const params = new URLSearchParams(window.location.search)
+    const urlReferralCode = params.get('ref')?.trim().toUpperCase()
+
+    if (urlReferralCode) {
+      sessionStorage.setItem(storageKey, urlReferralCode)
+      setReferralCode(urlReferralCode)
+      return
+    }
+
+    setReferralCode(
+      window.location.pathname === '/waitlist' ? (sessionStorage.getItem(storageKey) ?? '') : ''
+    )
+  }, [])
+
   const submitting = status === 'submitting'
   const student = role === 'student'
 
   function updateField(field: keyof typeof emptyForm, value: string) {
     setForm((current) => ({ ...current, [field]: value }))
+  }
+
+  function updateReferralCode(value: string) {
+    setReferralCode(value.trim().toUpperCase())
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -87,6 +112,7 @@ export function WaitlistRoleDialog({
         accreditationBody: student ? undefined : form.accreditationBody,
         howHeard: form.howHeard,
         termsAccepted,
+        referralCode: student ? referralCode : undefined,
       }),
     })
 
@@ -111,11 +137,13 @@ export function WaitlistRoleDialog({
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button type="button" variant="default" size={triggerSize} className={triggerClassName}>
-          {triggerLabel}
-        </Button>
-      </DialogTrigger>
+      {showTrigger && (
+        <DialogTrigger asChild>
+          <Button type="button" variant="default" size={triggerSize} className={triggerClassName}>
+            {triggerLabel}
+          </Button>
+        </DialogTrigger>
+      )}
 
       <DialogContent className="max-h-[92vh] max-w-xl overflow-y-auto rounded-[1.5rem] border-luma-hairline bg-background p-0 shadow-popup sm:rounded-[1.75rem]">
         <div className="bg-luma-canvas px-6 pb-5 pt-7 sm:px-8">
@@ -228,6 +256,25 @@ export function WaitlistRoleDialog({
                 required
               />
             </Field>
+
+            {student && (
+              <div className="grid gap-1.5 rounded-2xl border border-luma-hairline/70 bg-luma-canvas/70 px-4 py-3">
+                <Label
+                  htmlFor={`${fieldId}-referral`}
+                  className="text-xs font-semibold text-luma-mocha/60"
+                >
+                  Referral code <span className="font-normal">(optional)</span>
+                </Label>
+                <Input
+                  id={`${fieldId}-referral`}
+                  value={referralCode}
+                  onChange={(event) => updateReferralCode(event.target.value)}
+                  placeholder="LUMA-K7P2QX"
+                  autoComplete="off"
+                  className="h-9 rounded-xl border-luma-hairline bg-white text-sm uppercase tracking-[0.04em]"
+                />
+              </div>
+            )}
 
             <ConsentCheckbox
               id={`${fieldId}-terms`}
