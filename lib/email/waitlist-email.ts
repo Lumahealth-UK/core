@@ -170,13 +170,7 @@ function prepareHtmlTemplate(
     .replace(/{{\s*referral_link\s*}}/g, referralLink)
     .replace(/{{\s*referral_code\s*}}/g, referralCode)
     .replace(/{{\s*promo_code\s*}}/g, promoCode)
-    .replace(/{{\s*promo_code_block\s*}}/g, promoCode ? buildPromoCodeHtml(promoCode) : '')
-    .replace(
-      /We will notify you as soon as Luma launches\.<br><\/td><\/tr>/,
-      promoCode
-        ? `We will notify you as soon as Luma launches.<br></td></tr>${buildPromoCodeTableRow(promoCode)}`
-        : 'We will notify you as soon as Luma launches.<br></td></tr>'
-    )
+    .replace(/{{\s*promo_code_block\s*}}/g, promoCode ? buildPromoCodeTableRow(promoCode) : '')
     .replace(/(src|href)="images\/([^"]+)"/g, `$1="${siteUrl}/email/${templateDir}/images/$2"`)
 }
 
@@ -198,7 +192,6 @@ function prepareTextTemplate(
       /{{\s*promo_code_block\s*}}/g,
       variables.promoCode ? buildPromoCodeText(variables.promoCode) : ''
     )
-    .concat(variables.promoCode ? `\n${buildPromoCodeText(variables.promoCode)}` : '')
 }
 
 function escapeHtml(value: string) {
@@ -213,10 +206,6 @@ function escapeHtml(value: string) {
 
     return entities[character]
   })
-}
-
-function buildPromoCodeHtml(promoCode: string) {
-  return `You came through a friend's Luma link, so here is £5 off your first session: <strong>${escapeHtml(promoCode)}</strong>. Tiny win, useful timing.`
 }
 
 function buildPromoCodeTableRow(promoCode: string) {

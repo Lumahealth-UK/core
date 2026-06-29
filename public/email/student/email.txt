@@ -1,5 +1,7 @@
 Thank you for registering your intrest with Luma!
 
+{{ promo_code_block }}
+
 What does this mean?
 Got a friend who could use this? When they register using your personal referral link, you both get £5 off your first session.
 

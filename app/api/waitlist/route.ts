@@ -205,8 +205,8 @@ export async function POST(request: Request) {
   let signupPromoCode: string | undefined
 
   if (referrer && insertedWaitlist.referral_code) {
-    const referrerPromoCode = generateLumaCode()
-    signupPromoCode = generateLumaCode()
+    const referrerPromoCode = generateLumaCode('WELCOME')
+    signupPromoCode = generateLumaCode('WELCOME')
 
     const { error: referralInsertError } = await supabase.from('waitlist_referrals').insert({
       referrer_waitlist_id: referrer.id,
