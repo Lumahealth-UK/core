@@ -9,37 +9,44 @@ import {
 import { WaveSection } from '@/components/primitives/WaveSection'
 import { SectionHeader } from '@/components/primitives/SectionHeader'
 import { SECTION_IDS } from '@/lib/constants'
+import { cn } from '@/lib/utils'
 
 const features = [
   {
     title: 'A thoughtful match',
     description: 'Share what you want help with, your preferences, and when you are available.',
     Icon: SlidersHorizontal,
+    tone: 'coral',
   },
   {
     title: 'Therapist profiles',
     description: 'See the experience, approach, and focus areas behind each recommended therapist.',
     Icon: FileText,
+    tone: 'sage',
   },
   {
     title: 'Student-friendly booking',
     description: 'Choose sessions around lectures, work, placements, and exam season.',
     Icon: CalendarCheck,
+    tone: 'coral',
   },
   {
     title: 'Online sessions',
     description: 'Meet from your room, library booth, or wherever you can speak privately.',
     Icon: Video,
+    tone: 'sage',
   },
   {
     title: 'Support between sessions',
     description: 'Keep track of reflections, reminders, and next steps without losing the thread.',
     Icon: MessageCircle,
+    tone: 'coral',
   },
   {
     title: 'Room to rematch',
     description: 'If the fit is not right, the product is designed to help you change therapist.',
     Icon: RefreshCw,
+    tone: 'sage',
   },
 ] as const
 
@@ -64,12 +71,19 @@ export function WhatYouGetSection() {
       />
 
       <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {features.map(({ title, description, Icon }) => (
+        {features.map(({ title, description, Icon, tone }) => (
           <article
             key={title}
             className="rounded-3xl border border-luma-hairline bg-white p-6 shadow-[0_10px_28px_rgba(61,47,30,0.04)]"
           >
-            <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-luma-coral-tint text-luma-coral-deep">
+            <div
+              className={cn(
+                'mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl',
+                tone === 'sage'
+                  ? 'bg-luma-sage-soft text-luma-sage-deep'
+                  : 'bg-luma-coral-tint text-luma-coral-deep'
+              )}
+            >
               <Icon className="h-5 w-5" aria-hidden="true" />
             </div>
             <h3 className="font-heading text-xl font-bold leading-tight text-luma-mocha">

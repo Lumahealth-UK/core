@@ -1,40 +1,118 @@
+import Image from 'next/image'
+import { Clock3, GraduationCap, TrendingUp, type LucideIcon } from 'lucide-react'
+import { WaitlistRoleDialog } from '@/components/home-page/WaitlistRoleDialog'
 import { WaveSection } from '@/components/primitives/WaveSection'
-import { SECTION_IDS, sectionHref } from '@/lib/constants'
+import { SECTION_IDS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 import { type ComparisonRow, COMPARISON_ROWS } from './evidence-data'
 
-function PrimaryStat() {
+const evidenceStats: {
+  value: string
+  label: string
+  icon: LucideIcon
+  tone: 'coral' | 'sage'
+  className: string
+  valueClassName?: string
+}[] = [
+  {
+    value: '17.9%',
+    label: 'of UK undergraduates reported a mental health challenge in 2024',
+    icon: GraduationCap,
+    tone: 'coral',
+    className: 'lg:-right-2 lg:top-0 lg:w-[360px] xl:right-0 xl:w-[400px]',
+  },
+  {
+    value: '75%',
+    label: 'NHS Talking Therapies target for starting treatment within 6 weeks',
+    icon: Clock3,
+    tone: 'sage',
+    className: 'lg:bottom-8 lg:left-0 lg:w-[230px] xl:w-[250px]',
+    valueClassName: 'text-luma-sage-deep',
+  },
+  {
+    value: '67.4%',
+    label: 'Of NHS Talking Therapies completers showed reliable improvement in May 2024',
+    icon: TrendingUp,
+    tone: 'coral',
+    className: 'lg:bottom-5 lg:right-4 lg:w-[245px] xl:right-8 xl:w-[265px]',
+    valueClassName: 'text-luma-coral-deep',
+  },
+]
+
+const statToneClasses = {
+  coral: 'bg-luma-coral-tint text-luma-coral-deep',
+  sage: 'bg-luma-sage-soft text-luma-sage-deep',
+} satisfies Record<(typeof evidenceStats)[number]['tone'], string>
+
+function EvidenceStatCard({
+  value,
+  label,
+  icon: Icon,
+  tone,
+  className,
+  valueClassName,
+}: (typeof evidenceStats)[number]) {
   return (
-    <div className="flex items-center gap-6 rounded-2xl border border-luma-hairline bg-white p-7 shadow-[0_10px_30px_rgba(61,47,30,0.06)]">
-      <p className="shrink-0 font-heading text-6xl font-bold leading-none text-luma-coral">17.9%</p>
-      <div className="h-12 w-px shrink-0 bg-luma-hairline" aria-hidden="true" />
-      <p className="text-sm leading-snug text-luma-mocha/75">
-        of UK undergraduates reported a mental health challenge in 2024
-      </p>
+    <div
+      className={cn(
+        'rounded-2xl border border-luma-hairline bg-white p-5 shadow-[0_14px_34px_rgba(61,47,30,0.07)]',
+        'lg:absolute lg:z-20',
+        className
+      )}
+    >
+      <div className="flex items-start gap-4">
+        <span
+          className={cn(
+            'flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl',
+            statToneClasses[tone]
+          )}
+        >
+          <Icon className="h-5 w-5" aria-hidden="true" />
+        </span>
+        <div>
+          <p
+            className={cn(
+              'font-heading text-4xl font-bold leading-none text-luma-coral',
+              value === '17.9%' && 'md:text-5xl',
+              valueClassName
+            )}
+          >
+            {value}
+          </p>
+          <p className="mt-2 text-xs leading-snug text-luma-mocha/72">{label}</p>
+        </div>
+      </div>
     </div>
   )
 }
 
-function SecondaryStat({
-  value,
-  label,
-  dimmed = false,
-}: {
-  value: string
-  label: string
-  dimmed?: boolean
-}) {
+function EvidenceVisual() {
   return (
-    <div className="rounded-2xl border border-luma-hairline bg-white p-5 shadow-[0_6px_22px_rgba(61,47,30,0.04)]">
-      <p
-        className={cn(
-          'font-heading text-4xl font-bold leading-none',
-          dimmed ? 'text-luma-coral-light' : 'text-luma-coral-deep'
-        )}
-      >
-        {value}
-      </p>
-      <p className="mt-2 text-xs leading-snug text-luma-mocha/75">{label}</p>
+    <div className="relative mx-auto w-full max-w-4xl">
+      <div className="absolute left-1/2 top-1/2 hidden h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-luma-coral/10 blur-3xl lg:block" />
+
+      <div className="grid gap-4 lg:block lg:min-h-[480px]">
+        <div className="relative mx-auto aspect-[4/5] max-h-[520px] overflow-hidden rounded-[2rem] border border-luma-hairline bg-luma-canvas shadow-[0_22px_54px_rgba(61,47,30,0.16)] sm:aspect-[5/4] lg:absolute lg:left-[12%] lg:top-8 lg:h-[390px] lg:w-[460px] xl:left-[14%] xl:h-[420px] xl:w-[500px]">
+          <Image
+            src="/images/evidence-session.jpg"
+            alt="A student speaking with a therapist in a calm room"
+            fill
+            sizes="(min-width: 1280px) 500px, (min-width: 1024px) 44vw, 100vw"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-luma-mocha/18 via-transparent to-transparent" />
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:block">
+          {evidenceStats.map((stat) => (
+            <EvidenceStatCard
+              key={stat.value}
+              {...stat}
+              className={cn(stat.value === '17.9%' && 'sm:col-span-2', stat.className)}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
@@ -42,7 +120,6 @@ function SecondaryStat({
 function ComparisonTable({ rows }: { rows: ComparisonRow[] }) {
   return (
     <div className="overflow-hidden rounded-2xl border border-luma-hairline bg-white shadow-[0_10px_28px_rgba(61,47,30,0.05)]">
-      {/* Table header */}
       <div className="border-b border-luma-hairline bg-luma-coral-tint/70 px-5 py-3">
         <div className="grid grid-cols-3 items-center">
           <p className="text-[10px] font-semibold uppercase tracking-widest text-luma-mocha/70">
@@ -57,7 +134,6 @@ function ComparisonTable({ rows }: { rows: ComparisonRow[] }) {
         </div>
       </div>
 
-      {/* Rows */}
       <div>
         {rows.map((row) => (
           <div
@@ -79,7 +155,7 @@ function ComparisonTable({ rows }: { rows: ComparisonRow[] }) {
             </span>
             <span
               className={cn(
-                'text-sm text-center',
+                'text-center text-sm',
                 row.isLuma ? 'font-bold text-luma-coral-deep' : 'text-luma-mocha/60'
               )}
             >
@@ -87,7 +163,7 @@ function ComparisonTable({ rows }: { rows: ComparisonRow[] }) {
             </span>
             <span
               className={cn(
-                'text-sm text-right',
+                'text-right text-sm',
                 row.isLuma ? 'font-semibold text-luma-coral-deep' : 'text-luma-mocha/60'
               )}
             >
@@ -97,7 +173,6 @@ function ComparisonTable({ rows }: { rows: ComparisonRow[] }) {
         ))}
       </div>
 
-      {/* Footer microcopy */}
       <div className="border-t border-luma-hairline px-5 py-3">
         <p className="text-[11px] text-luma-mocha/55">
           Access speed &amp; cost compared — Luma leads on both.
@@ -115,8 +190,7 @@ export function EvidenceSection() {
       topWave={{ front: 'white', back: 'var(--color-luma-canvas)' }}
       bottomWave={{ front: 'white', back: 'var(--color-luma-canvas)' }}
     >
-      <div className="grid grid-cols-1 gap-14 lg:grid-cols-[5fr_7fr] lg:items-center lg:gap-20">
-        {/* LEFT: Narrative */}
+      <div className="grid grid-cols-1 gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:gap-16">
         <div className="flex flex-col space-y-7">
           <p className="text-[11px] font-semibold uppercase tracking-widest text-luma-coral">
             The Evidence
@@ -134,39 +208,25 @@ export function EvidenceSection() {
           </p>
 
           <div>
-            <a
-              href={sectionHref(SECTION_IDS.CONTACT)}
-              className={cn(
+            <WaitlistRoleDialog
+              triggerLabel="I'm ready to start →"
+              triggerSize="lg"
+              triggerClassName={cn(
                 'inline-flex items-center gap-2 rounded-full px-7 py-3.5',
                 'bg-luma-coral text-sm font-semibold text-white',
                 'shadow-[0_4px_20px_rgba(244,123,102,0.30)]',
                 'transition-all duration-200',
                 'hover:bg-luma-coral-deep hover:shadow-[0_8px_30px_rgba(244,123,102,0.38)]'
               )}
-            >
-              I&rsquo;m ready to start <span aria-hidden="true">→</span>
-            </a>
+            />
           </div>
         </div>
 
-        {/* RIGHT: Proof */}
-        <div className="flex flex-col gap-4">
-          <PrimaryStat />
+        <EvidenceVisual />
+      </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <SecondaryStat
-              value="75%"
-              label="NHS Talking Therapies target for starting treatment within 6 weeks"
-              dimmed
-            />
-            <SecondaryStat
-              value="67.4%"
-              label="Of NHS Talking Therapies completers showed reliable improvement in May 2024"
-            />
-          </div>
-
-          <ComparisonTable rows={COMPARISON_ROWS} />
-        </div>
+      <div className="mt-10 lg:mt-14">
+        <ComparisonTable rows={COMPARISON_ROWS} />
       </div>
     </WaveSection>
   )

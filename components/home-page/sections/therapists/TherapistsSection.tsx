@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import { ArrowRight, CalendarDays, PoundSterling, ShieldCheck, type LucideIcon } from 'lucide-react'
+import { CalendarDays, PoundSterling, ShieldCheck, type LucideIcon } from 'lucide-react'
+import { WaitlistRoleDialog } from '@/components/home-page/WaitlistRoleDialog'
 import { Section } from '@/components/primitives/Section'
 import { SECTION_IDS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
@@ -85,16 +86,15 @@ export function TherapistsSection() {
             students. No one gets listed without passing our vetting process.
           </p>
           <div className="pt-2">
-            <a
-              href="/therapists"
-              className={cn(
+            <WaitlistRoleDialog
+              triggerLabel="Find your therapist →"
+              triggerSize="lg"
+              triggerClassName={cn(
                 'inline-flex items-center gap-2 rounded-full px-7 py-3.5',
                 'bg-luma-coral text-sm font-semibold text-white',
                 'transition-colors duration-200 hover:bg-luma-coral-deep'
               )}
-            >
-              Find your therapist <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
+            />
           </div>
         </div>
 
