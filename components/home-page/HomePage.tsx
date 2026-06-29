@@ -9,7 +9,6 @@ import { HowItWorksSection } from '@/components/home-page/sections/how-it-works/
 import { WhatYouGetSection } from '@/components/home-page/sections/WhatYouGetSection'
 import { StudentStoriesSection } from '@/components/home-page/sections/student-stories/StudentStoriesSection'
 import { EvidenceSection } from '@/components/home-page/sections/evidence/EvidenceSection'
-import { TrustSafetySection } from '@/components/home-page/sections/TrustSafetySection'
 // import { PricingSection } from '@/components/home-page/sections/pricing/PricingSection'
 import { TherapistsSection } from '@/components/home-page/sections/therapists/TherapistsSection'
 import { BlogPreviewSection } from '@/components/home-page/sections/blog-preview/BlogPreviewSection'
@@ -31,7 +30,6 @@ export function HomePage() {
         <WhatYouGetSection />
         <TherapistsSection />
         <EvidenceSection />
-        <TrustSafetySection />
         {/* <PricingSection /> */}
         <StudentStoriesSection />
         <OurStorySection />

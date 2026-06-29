@@ -1,61 +1,66 @@
 import Image from 'next/image'
+import { ArrowRight, CalendarDays, PoundSterling, ShieldCheck, type LucideIcon } from 'lucide-react'
 import { Section } from '@/components/primitives/Section'
 import { SECTION_IDS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
-import { type Therapist, THERAPISTS, TRUST_SIGNALS } from './therapists-data'
+import { TRUST_SIGNALS } from './therapists-data'
 
-function StarRating({ rating }: { rating: number }) {
-  return (
-    <div className="flex items-center gap-1.5">
-      <span className="text-luma-coral" aria-hidden="true">
-        ★
-      </span>
-      <span className="text-sm font-semibold text-white">{rating}</span>
-    </div>
-  )
-}
+const statCards: {
+  metric: string
+  label: string
+  icon: LucideIcon
+  className: string
+  animationClassName: string
+}[] = [
+  {
+    ...TRUST_SIGNALS[0],
+    icon: ShieldCheck,
+    className: 'left-3 top-4 sm:left-8 sm:top-8 lg:-left-8 lg:top-12',
+    animationClassName: 'animate-float-vertical [animation-duration:4.8s]',
+  },
+  {
+    ...TRUST_SIGNALS[1],
+    icon: PoundSterling,
+    className: 'bottom-8 right-3 sm:bottom-10 sm:right-8 lg:-right-8 lg:bottom-28',
+    animationClassName: 'animate-float-vertical [animation-delay:900ms] [animation-duration:5.4s]',
+  },
+  {
+    ...TRUST_SIGNALS[2],
+    icon: CalendarDays,
+    className: 'bottom-3 left-5 sm:bottom-8 sm:left-10 lg:left-16 lg:-bottom-6',
+    animationClassName: 'animate-float-vertical [animation-delay:1600ms] [animation-duration:5.8s]',
+  },
+]
 
-function TherapistCard({ therapist }: { therapist: Therapist }) {
+function TherapistStatCard({
+  metric,
+  label,
+  icon: Icon,
+  className,
+  animationClassName,
+}: (typeof statCards)[number]) {
   return (
-    <article
+    <div
       className={cn(
-        'group relative flex flex-col rounded-2xl p-6',
-        'bg-gradient-to-b from-luma-wood-mid to-luma-mocha',
-        'border border-white/8',
-        'transition-all duration-300 ease-out',
-        'hover:-translate-y-1 hover:from-luma-wood hover:to-luma-wood-mid',
-        'hover:border-white/20',
-        'hover:shadow-[0_12px_40px_rgba(0,0,0,0.25)]'
+        'absolute z-10 w-[168px] rounded-2xl border border-luma-hairline bg-white/90 p-4 shadow-popup backdrop-blur-xl sm:w-[190px]',
+        animationClassName,
+        className
       )}
     >
-      <div className="h-16 w-16 overflow-hidden rounded-xl">
-        <Image
-          src={therapist.photo}
-          alt={therapist.name}
-          width={64}
-          height={64}
-          className="h-full w-full object-cover"
-        />
-      </div>
-
-      <div className="mt-5">
-        <p className="text-base font-semibold text-white">{therapist.name}</p>
-        <p className="mt-0.5 text-xs text-white/40">{therapist.credential}</p>
-      </div>
-
-      <div className="mt-4 flex flex-wrap gap-1.5">
-        {therapist.specialties.map((s) => (
-          <span key={s} className="rounded-full bg-white/5 px-3 py-1 text-[11px] text-white/55">
-            {s}
+      <div className="flex items-start gap-3">
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-luma-sage-soft text-luma-sage-deep">
+          <Icon className="h-5 w-5" aria-hidden="true" />
+        </span>
+        <span>
+          <span className="block font-heading text-2xl font-bold leading-none text-luma-mocha">
+            {metric}
           </span>
-        ))}
+          <span className="mt-1.5 block text-xs font-medium leading-5 text-luma-mocha/55">
+            {label}
+          </span>
+        </span>
       </div>
-
-      <div className="mt-auto flex items-center justify-between pt-5">
-        <StarRating rating={therapist.rating} />
-        <span className="text-xs text-white/35">{therapist.students} students</span>
-      </div>
-    </article>
+    </div>
   )
 }
 
@@ -63,10 +68,10 @@ export function TherapistsSection() {
   return (
     <Section
       id={SECTION_IDS.THERAPISTS}
-      className="bg-white"
+      className="overflow-hidden bg-white"
       containerClassName="max-w-screen-xl w-full"
     >
-      <div className="flex items-start justify-between gap-16">
+      <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <div className="max-w-lg space-y-4">
           <p className="text-xs font-semibold uppercase tracking-widest text-luma-coral">
             Our therapists
@@ -88,28 +93,28 @@ export function TherapistsSection() {
                 'transition-colors duration-200 hover:bg-luma-coral-deep'
               )}
             >
-              Find your therapist <span aria-hidden="true">→</span>
+              Find your therapist <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
           </div>
         </div>
 
-        <div className="hidden shrink-0 flex-col justify-between gap-8 self-stretch pt-1 lg:flex">
-          {TRUST_SIGNALS.map((s) => (
-            <div key={s.metric} className="text-right">
-              <p className="font-heading text-3xl font-bold text-luma-mocha">{s.metric}</p>
-              <p className="mt-0.5 text-sm text-luma-mocha/50">{s.label}</p>
-            </div>
+        <div className="relative mx-auto w-full max-w-2xl px-4 pb-12 pt-6 sm:px-10 lg:px-8">
+          <div className="absolute inset-x-8 top-12 h-56 rounded-full bg-luma-coral/10 blur-3xl" />
+          <div className="relative mx-auto aspect-[4/5] max-h-[620px] overflow-hidden rounded-[2rem] border border-luma-hairline bg-luma-canvas shadow-popup sm:aspect-[5/4] lg:aspect-[4/5]">
+            <Image
+              src="/images/therapists-session.jpg"
+              alt="A student and therapist speaking in a calm room"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+
+          {statCards.map((card) => (
+            <TherapistStatCard key={card.metric} {...card} />
           ))}
         </div>
       </div>
-
-      {/* Therapist cards are hidden until real Luma therapists are ready to publish.
-      <div className="mt-14 grid gap-5 sm:grid-cols-3">
-        {THERAPISTS.map((t) => (
-          <TherapistCard key={t.name} therapist={t} />
-        ))}
-      </div>
-      */}
     </Section>
   )
 }
